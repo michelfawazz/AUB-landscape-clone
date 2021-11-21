@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/michelfawazz/CMPS278-Project#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongod": "^2.0.0",
     "mongodb": "^4.2.0",
+    "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
   }
 }

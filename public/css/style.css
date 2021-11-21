@@ -10,12 +10,16 @@ body {
     font: 14px Arial;
 }
 
+
 main{
    
     display: table;
     width: 100%;
     height: auto;
+    
 }
+
+
 a {
     text-decoration: none;
 }
@@ -50,6 +54,12 @@ header {
 }
 
 footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    
+    align-items: flex-end;
+    
     width: 1150px;
     height: 250px;
     background: url(../images/footer-bg-colored.png) no-repeat;
@@ -118,4 +128,136 @@ nav {
     color: #0099FF;
     background: url('../images/blue_arrow.png') no-repeat left center;
     padding-left: 20px;
+}
+
+.spotlight {
+    width: 400px;
+    float: left;
+    padding-left: 50px;
+}
+
+
+
+.spotlight .spotlight-title {
+    display: block;
+    float: left;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.searchCards ul li {
+    list-style: none;
+    margin-bottom: 10px;
+    
+}
+
+/*50px between cards in searchCards*/
+.searchCards ul li:nth-child(2n+1) {
+    margin-left: 50px;
+}
+
+.searchCards{
+    
+    display:block;
+    
+
+}
+
+
+.card{
+  
+    text-align: center;
+    width: 200px;
+    height: 280px;
+    float: left;
+    padding: 20px;
+    
+    color: black;
+    font-size: 12px;
+
+   
+    margin-top: -70px;
+    /* white background and border black*/
+    background: #fff;
+    border: 1px solid #000;
+   
+    /*padding between cards*/
+    margin-left: 10px;
+    margin-bottom: 50px;
+    
+
+    
+    
+
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.flex2 {
+    display: flex;
+    flex-direction: column;
+   
+    justify-content: space-between;
+
+}
+.flex3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.about h4 {
+    color: #0099FF;
+}
+
+.alphaSearch h4{
+    color: #0099FF;
+
+}
+
+.alphaSearch ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 10px;
+   
+}
+.alphaSearch a{
+    color: black;
+}
+
+
+.navfoot{
+    width: 600px;
+    height: 40px;
+    float: right;
+    margin-right: 88px;
+    clear: both;
+    background: url(../images/hr.png) no-repeat right bottom;
+    margin-bottom: 50px;
+}
+
+.navfoot ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 10px;
+   
+   
+}
+
+.navfoot a{
+    color: white;
+    
+
 }
