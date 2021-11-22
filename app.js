@@ -7,9 +7,11 @@ var url = require('url');
 
 const express = require('express');
 const app = express();
-const AdminRoutes = require('./routes/AdminRoutes');
+
 
 const bodyParser = require('body-parser');
+
+app.set("view engine", "ejs");
 
 
 
@@ -36,7 +38,12 @@ app.use(express.static(__dirname + '/public'));
 
 
 //routes
+const AdminRoutes = require('./routes/AdminRoutes');
 app.use("/admin",AdminRoutes);
+
+
+
+
 
 
 
@@ -45,10 +52,13 @@ app.get('/', function(req, res) {
 });
 
 app.get('/about', function(req, res) {
-    res.sendFile(__dirname + '/html_files/about.html');
-
-
+    res.sendFile(__dirname + '/html_files/about.html')
 });
+
+app.get('/Links', function(req, res) {
+    res.sendFile(__dirname + '/html_files/Links.html')
+});
+
 
 
 

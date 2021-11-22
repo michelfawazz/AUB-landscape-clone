@@ -5,20 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- using the schema in plant.js make a form to add plants-->
-
-    <form action="/admin/add" method="post" >
-        <input type="text" name ="category" placeholder="Category">
-        <input type="text" name="CommonName" placeholder="Common Name">
-        <input type="text" name="ScientificName" placeholder="Scientific Name">
-        <input type="text" name="Description" placeholder="Description">
+    <!-- add heading add plants-->
+    <h1>Add Plants</h1>
+    <div class="addplant">
+    
+    
+    <form  action="/admin/add" method="post" >
+        <div>
+            <input type="text" name="CommonName" placeholder="Common Name">
+        </div>
+        <div> 
+            <input type="text" name="ScientificName" placeholder="Scientific Name">
+        </div>
+        <div>
+            <input type="text" name="Description" placeholder="Description">
+        </div>
+        
+        <div >
+            <input type="file" name="images" placeholder="Image">
+        </div>
+       
         <button type="submit" >Submit</button>
     </form>
+    </div>
+
+    
 
 
-        
+
+
+
 
     
 </body>

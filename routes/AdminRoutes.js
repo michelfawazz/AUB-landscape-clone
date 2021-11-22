@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 
 router.post('/add', AdminController.addPlant);
 
-router.get("/ShowAll",AdminController.showPlants);
 
 
 module.exports = router;
