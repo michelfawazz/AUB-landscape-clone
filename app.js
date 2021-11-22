@@ -41,14 +41,9 @@ app.use(express.static(__dirname + '/public'));
 const AdminRoutes = require('./routes/AdminRoutes');
 app.use("/admin",AdminRoutes);
 
-
-
-
-
-
-
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/html_files/index.html');
+
 });
 
 app.get('/about', function(req, res) {

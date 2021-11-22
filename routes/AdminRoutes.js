@@ -13,6 +13,4 @@ router.get('/', (req, res) => {
 
 router.post('/add', AdminController.addPlant);
 
-
-
 module.exports = router;

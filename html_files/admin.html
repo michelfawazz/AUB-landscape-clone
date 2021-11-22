@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- import boostrap and jquery from web-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,7 +21,7 @@
     <div class="addplant">
     
     
-    <form  action="/admin/add" method="post" >
+    <form action="/admin/add" method="post" >
         <div>
             <input type="text" name="CommonName" placeholder="Common Name">
         </div>
@@ -27,15 +33,37 @@
         </div>
         
         <div >
-            <input type="file" name="images" placeholder="Image">
+            <input type="file" id="uploadFile" multiple>
+        </div>
+
+        <h5>Landscape Info</h5>
+        <div id="tab_1">
+            <input type="text" class="form-control property-name-input" name="land1"
+            value="French name" readonly>
+
+            <input type="text" class="form-control property-name-input" name="landc1"
+            placeholder="enter property">
+        </div>
+        <h5>Botanical Description</h5>
+        <div>
+            <input type="text" class="form-control property-name-input" name="bot1" value="Leaf Arrangement" readonly>
+            <input type="text" class="form-control property-name-input" name="botc1" placeholder="enter property">
+        </div>
+        <h5>Horticulture Management</h5>
+        <div>
+            <input type="text" class="form-control property-name-input" name="hort1" value="Frost Tolerant" readonly>
+            <input type="text" class="form-control property-name-input" name="hortc1" placeholder="enter property">
         </div>
        
-        <button type="submit" >Submit</button>
+
+
+
+        
+        <button type="submit" id = "add">Submit</button>
     </form>
     </div>
 
-    
-
+ 
 
 
 

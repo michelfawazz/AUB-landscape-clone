@@ -36,6 +36,14 @@ const PlantSchema = new mongoose.Schema({
 
     landscape: {
         type: [Property]
+    },
+
+    botanical: {
+        type: [Property]
+    },
+
+    horticulture: {
+        type: [Property]
     }
 
 
