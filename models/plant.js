@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const PlantSchema = new mongoose.Schema({
+    category: {
+        type: String,
+        required: true
+    },
     CommonName: {
         type: String,
         required: true
     },
     ScientificName: {
-        type: String,
-        required: true
-    },
-    Family: {
         type: String,
         required: true
     },
@@ -21,5 +21,4 @@ const PlantSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Plant', PlantSchema);
-
 
