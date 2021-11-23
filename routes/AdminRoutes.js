@@ -5,12 +5,43 @@ const plant = require('../models/plant');
 const path = require('path');
 let reqPath = path.join(__dirname, '../');
 
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads/')
+    },
+    
+    filename: function (req, file, cb) {
+        cb(null, Date.now()+"_"+file.originalname)
+    }
+    
+});
+
+const upload = multer({
+    storage: storage,
+}).array('image');
+
+
+
+
 router.get('/', (req, res) => {
-    //show admin.html
-    res.sendFile(reqPath + '/html_files/admin.html');
+    res.render('admin')
+});
+
+router.get("/adminplant", (req, res) => {
+    res.render('adminplant');
+});
+
+
+router.get('/addplant', (req, res) => {
+    res.render("AddPlant")
 
 });
 
-router.post('/add', AdminController.addPlant);
+router.post('/add', upload,AdminController.addPlant);
+
+//search for plant
+router.post("/search",AdminController.searchPlant);
 
 module.exports = router;

@@ -1,0 +1,103 @@
+
+<h1>Add Plants</h1>
+    <div class="addplant">
+    
+    
+        <form action="/admin/add" method="post" enctype="multipart/form-data">
+        <div>
+            <!-- select with 6 options-->
+            <label for="plant_type">Plant Category</label>
+            <select name="category">
+                <option value="Fragrant">Fragrant</option>
+                <option value="Flowering">Flowering</option>
+                <option value="Edible">Edible</option>
+                <option value="Arid">For arid regions</option>
+                <option value="Shade">For Shade</option>
+                <option value="Ground">Ground Covers</option>
+              
+            </select>
+
+        </div>
+        <div>
+            <input type="text" name="CommonName" placeholder="Common Name">
+        </div>
+        <div> 
+            <input type="text" name="ScientificName" placeholder="Scientific Name">
+        </div>
+        <div>
+            <input type="text" name="Description" placeholder="Description">
+        </div>
+        
+        <div >
+            <input type="file" name="image" id="image" multiple>
+        </div>
+        <br>
+
+
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Landscape Information</a></li>
+            <li><a data-toggle="tab" href="#menu1">Botanical Description</a></li>
+            <li><a data-toggle="tab" href="#menu2">Horticulture Management</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <br>
+                <br>
+               
+                <div>
+                    <input type="text" class="form-control property-name-input" name="land1"
+                    value="French name" readonly>
+        
+                    <input type="text" class="form-control property-name-input" name="landc1"
+                    placeholder="enter property">
+                </div>
+                <div>
+                    <input type="text" class="form-control property-name-input" name="land2"
+                    value="Pronounciation" readonly>
+        
+                    <input type="text" class="form-control property-name-input" name="landc2"
+                    placeholder="enter property">
+                </div>
+        
+              </div>
+            <div id="menu1" class="tab-pane fade">
+                <br>
+                <div>
+                    <input type="text" class="form-control property-name-input" name="bot1" value="Leaf Arrangement" readonly>
+                    <input type="text" class="form-control property-name-input" name="botc1" placeholder="enter property">
+                </div>
+                <div>
+                    <input type="text" class="form-control property-name-input" name="bot2" value="Leaf Persistance" readonly>
+                    <input type="text" class="form-control property-name-input" name="botc2" placeholder="enter property">
+                </div>
+              </div>
+            <div id="menu2" class="tab-pane fade">
+              <br>
+              <div>
+                <input type="text" class="form-control property-name-input" name="hort1" value="Frost Tolerant" readonly>
+                <input type="text" class="form-control property-name-input" name="hortc1" placeholder="enter property">
+            </div>
+            <div>
+                <input type="text" class="form-control property-name-input" name="hort2" value="Heat Tolerant" readonly>
+                <input type="text" class="form-control property-name-input" name="hortc2" placeholder="enter property">
+            </div>
+              </div>
+       
+
+
+
+        
+        <button type="submit" id = "add">Submit</button>
+        </form>
+    </div>
+                
+    
+
+        
+
+        
+
+        
+

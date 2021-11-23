@@ -16,7 +16,11 @@ const Property = new mongoose.Schema({
 })
 
 const PlantSchema = new mongoose.Schema({
-   
+
+    category : {
+        type : String,
+        required : true,
+    },
     CommonName: {
         type: String,
         required: true
@@ -30,8 +34,9 @@ const PlantSchema = new mongoose.Schema({
         required: true
     },
 
-    images: {
-        type: [String]
+    image: {
+        type: [String],
+        required: true
     },
 
     landscape: {

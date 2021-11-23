@@ -6,12 +6,17 @@ var fs = require('fs');
 var url = require('url');
 
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const app = express();
 
 
 const bodyParser = require('body-parser');
 
+app.use(expressLayouts);
+app.set("layout" , "./Layouts/Adminlayout");
 app.set("view engine", "ejs");
+
+
 
 
 
@@ -28,8 +33,6 @@ db.once('open', () => console.log('Connected to MongoDB'));
 
 
 
-
-
 //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -42,16 +45,19 @@ const AdminRoutes = require('./routes/AdminRoutes');
 app.use("/admin",AdminRoutes);
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/html_files/index.html');
+    // render index with another layout
+    res.render('index', { layout: './Layouts/UserLayout' });
 
 });
 
 app.get('/about', function(req, res) {
-    res.sendFile(__dirname + '/html_files/about.html')
+    res.render('about');
+
 });
 
 app.get('/Links', function(req, res) {
-    res.sendFile(__dirname + '/html_files/Links.html')
+    res.render('links');
+
 });
 
 

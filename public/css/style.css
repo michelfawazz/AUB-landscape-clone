@@ -296,3 +296,32 @@ nav {
 }
 
 
+.profile h4{
+    color: lightgreen;
+}
+
+.profile span{
+    color: lightgray ;
+}
+.imageviews{
+    /*display alone on the line*/
+    display: inline-block;
+    
+
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.imageviews img{
+   
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+
+}
