@@ -325,3 +325,25 @@ nav {
     border-radius: 10px;
 
 }
+.AdminSearchRes{
+    /*rows */
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+   
+
+
+}
+
+.AdminSearchRes img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}

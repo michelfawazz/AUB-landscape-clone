@@ -1,0 +1,42 @@
+<h1>Admin Search Results</h1>
+
+<% for (var i = 0; i < plant.length; i++) { %>
+    <div class= "profile">
+    
+    
+    <!--href passing common name -->
+    <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
+    <div class = "AdminSearchRes">
+        
+    
+     
+          <% for (var z = 0; z < plant[i].image.length; z++) { %>
+            <!--only show the first image-->
+            <% if (z == 0) { %>
+                <img src="/uploads/<%= plant[i].image[z]%>" alt="<%= plant[i].image[z].imageName %>" class="image">
+
+                <% } %>
+            
+            <% } %>
+
+            <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+    
+    
+    </div>
+    </a>
+    
+
+    <hr>
+    <% } %>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+    

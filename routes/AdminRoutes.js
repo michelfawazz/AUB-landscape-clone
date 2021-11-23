@@ -39,9 +39,15 @@ router.get('/addplant', (req, res) => {
 
 });
 
+router.get("/PlantProfile/:CommonName" , AdminController.PlantProfile);
+
 router.post('/add', upload,AdminController.addPlant);
 
+router.get('/deletePlant/:id', AdminController.deletePlant);
+
 //search for plant
-router.post("/search",AdminController.searchPlant);
+router.post("/searchByName",AdminController.searchPlantByName);
+
+router.get("/searchByLetter/:Letter",AdminController.searchPlantByLetter);
 
 module.exports = router;

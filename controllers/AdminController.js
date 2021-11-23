@@ -5,8 +5,8 @@ const plant = require('../models/plant');
 module.exports.addPlant = (req, res) => {
     let newPlant = new plant({
         category: req.body.category,
-        CommonName: req.body.CommonName,
-        ScientificName: req.body.ScientificName,
+        CommonName: req.body.CommonName.toLowerCase(),
+        ScientificName: req.body.ScientificName.toLowerCase(),
         Description: req.body.Description,
         // get all file names from the form
         image: req.files.map(file => file.filename),
@@ -29,14 +29,30 @@ module.exports.addPlant = (req, res) => {
     });
 
     
-}
+};
+
+//redirect to adminplant page passing plant object
+module.exports.PlantProfile = (req, res) => {
+    let commonName = req.params.CommonName;
+    plant.find({CommonName: commonName}, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('adminplant', {
+                plant: plant
+            });
+        }
+    });
+};
+
 
 
 // search for plant by common name or scientific name using input from admin.html form
 
-module.exports.searchPlant = (req, res) => {
-    let search = req.body.search;
-    plant.find({$or: [{CommonName: search}, {ScientificName: search}]}, (err, plant) => {
+module.exports.searchPlantByName = (req, res) => {
+    let searchCommon = req.body.searchCommon;
+    let searchScientific = req.body.searchScientific;
+    plant.find({$or: [{CommonName: searchCommon}, {ScientificName: searchScientific}]}, (err, plant) => {
         if (err) {
             console.log(err);
         } else {
@@ -47,6 +63,40 @@ module.exports.searchPlant = (req, res) => {
         }
     });
    
+}
+
+// filter all plants whose common name starts with the ltter in the url
+module.exports.searchPlantByLetter = (req, res) => {
+    
+    let letter = req.params.Letter;
+    plant.find({CommonName: new RegExp('^' + letter.toLowerCase(), 'i')}, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(plant);
+            res.render('AdminSearchRes', {
+                plant: plant,
+            });
+        }
+    });
+
+}
+
+
+
+//delete plant from database
+module.exports.deletePlant = (req, res) => {
+    let id = req.params.id;
+    plant.findByIdAndDelete(id, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(plant);
+            res.redirect('/admin');
+        }
+    });
+
+
 }
 
 
