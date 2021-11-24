@@ -6,7 +6,7 @@ const plant = require('../models/plant');
 
 module.exports.PlantProfile = (req, res) => {
     let commonName = req.params.CommonName;
-    plant.find({CommonName: commonName}, (err, plant) => {
+    plant.findOne({CommonName: commonName}, (err, plant) => {
         if (err) {
             console.log(err);
         } else {

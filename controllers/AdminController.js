@@ -34,7 +34,7 @@ module.exports.addPlant = (req, res) => {
 //redirect to adminplant page passing plant object
 module.exports.PlantProfile = (req, res) => {
     let commonName = req.params.CommonName;
-    plant.find({CommonName: commonName}, (err, plant) => {
+    plant.findOne({CommonName: commonName}, (err, plant) => {
         if (err) {
             console.log(err);
         } else {

@@ -1,17 +1,17 @@
-<% for (var i = 0; i < plant.length; i++) { %>
+
 <div class= "profile">
 <h1>Plant Profile</h1>
 
 
-<h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+<h4 ><%= plant.CommonName %> <br><span><%= plant.ScientificName %></span></h4>
 
-<p><%= plant[i].Description %></p>
+<p><%= plant.Description %></p>
 
 
 <div class="imageviews">
  
-      <% for (var z = 0; z < plant[i].image.length; z++) { %>
-        <img src="/uploads/<%= plant[i].image[z]%>" alt="<%= plant[i].CommonName %>" class="img-thumbnail">
+      <% for (var z = 0; z < plant.image.length; z++) { %>
+        <img src="/uploads/<%= plant.image[z]%>" alt="<%= plant.CommonName %>" class="img-thumbnail">
 
         <% } %>
       
@@ -29,8 +29,8 @@
         <br>
        
         <!-- from plant landscape loop over array and  print-->
-        <% for (var j = 0; j < plant[i].landscape.length; j++) { %>
-        <h6><%= plant[i].landscape[j].name %> <span>: <%= plant[i].landscape[j].content %></span></h6>
+        <% for (var j = 0; j < plant.landscape.length; j++) { %>
+        <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
         
         <% } %>
 
@@ -38,26 +38,25 @@
     </div>
     <div id="menu1" class="tab-pane fade">
         <br>
-        <% for (var j = 0; j < plant[i].botanical.length; j++) { %>
-          <h6><%= plant[i].botanical[j].name %> <span>: <%= plant[i].botanical[j].content %></span></h6>
+        <% for (var j = 0; j < plant.botanical.length; j++) { %>
+          <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
           
         <% } %>
       
     </div>
     <div id="menu2" class="tab-pane fade">
       <br>
-      <% for (var j = 0; j < plant[i].horticulture.length; j++) { %>
-        <h6><%= plant[i].horticulture[j].name %> <span>: <%= plant[i].horticulture[j].content %></span></h6>
+      <% for (var j = 0; j < plant.horticulture.length; j++) { %>
+        <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
         
         <% } %>
       </div>
   </div>
 
 <!-- add a delete plant button when clicked does the delete route-->
-<button type="button" class="btn btn-danger" onclick="window.location.href='/admin/deletePlant/<%= plant[i]._id %>'">Delete Plant</button>
+<button type="button" class="btn btn-danger" onclick="window.location.href='/admin/deletePlant/<%= plant._id %>'">Delete Plant</button>
 
 
-<% } %>
 
 
 
