@@ -7,7 +7,7 @@
 
 <p><%= plant[i].Description %></p>
 
-<!-- show images 1 big pic and small ones-->
+
 <div class="imageviews">
  
       <% for (var z = 0; z < plant[i].image.length; z++) { %>
@@ -35,18 +35,18 @@
         <% } %>
 
 
-      </div>
+    </div>
     <div id="menu1" class="tab-pane fade">
         <br>
-        <% for (var j = 0; j < plant[i].landscape.length; j++) { %>
+        <% for (var j = 0; j < plant[i].botanical.length; j++) { %>
           <h6><%= plant[i].botanical[j].name %> <span>: <%= plant[i].botanical[j].content %></span></h6>
           
-          <% } %>
+        <% } %>
       
-      </div>
+    </div>
     <div id="menu2" class="tab-pane fade">
       <br>
-      <% for (var j = 0; j < plant[i].landscape.length; j++) { %>
+      <% for (var j = 0; j < plant[i].horticulture.length; j++) { %>
         <h6><%= plant[i].horticulture[j].name %> <span>: <%= plant[i].horticulture[j].content %></span></h6>
         
         <% } %>

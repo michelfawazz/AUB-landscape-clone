@@ -347,3 +347,75 @@ nav {
     border: 1px solid #000;
     border-radius: 10px;
 }
+
+.category ul{
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    
+    padding-left: 10px;
+   
+   
+
+  
+}
+.category div{
+    /*position the divs inside this div in a grid*/
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    grid-gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+    
+.cardCat{
+  
+    text-align: center;
+    width: 230px;
+    height: 280px;
+    float: left;
+    padding: 20px;
+    
+    color: black;
+    font-size: 12px;
+
+   
+    margin-top: -70px;
+    /* white background and border black*/
+    background: #fff;
+    border: 1px solid #000;
+   
+    /*padding between cards*/
+    margin-left: 10px;
+    margin-bottom: 50px;
+    
+
+    
+    
+
+}
+
+.imggal {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.Galgrid{
+    /*position the divs inside this div in a grid*/
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    grid-gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+

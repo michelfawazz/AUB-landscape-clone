@@ -44,21 +44,14 @@ app.use(express.static(__dirname + '/public'));
 const AdminRoutes = require('./routes/AdminRoutes');
 app.use("/admin",AdminRoutes);
 
-app.get('/', function(req, res) {
-    // render index with another layout
-    res.render('index', { layout: './Layouts/UserLayout' });
+const UserRoutes = require('./routes/UserRoutes');
+app.use("/",UserRoutes);
 
-});
 
-app.get('/about', function(req, res) {
-    res.render('about');
 
-});
 
-app.get('/Links', function(req, res) {
-    res.render('links');
 
-});
+
 
 
 

@@ -1,0 +1,32 @@
+<h1>Image Gallery</h1>
+<div class="Galgrid">
+<% for (var i = 0; i < plant.length; i++) { %>
+    <div class= "Gallery">
+    
+    
+        <!-- usinga grid display all the plants images and names under the image-->
+        <div class="row">
+            <div class="col-md-4">
+                <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
+                <div class = "AdminSearchRe">
+                    
+                    
+                    <!--only show the first image-->
+                    <% for (var z = 0; z < plant[i].image.length; z++) { %>
+                        <% if (z == 0) { %>
+                            <img class="imggal" src="/uploads/<%= plant[i].image[z]%>" class="image">
+        
+                            <% } %>
+                    
+                        <% } %>
+        
+                        <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+        
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+</div>

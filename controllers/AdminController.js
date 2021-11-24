@@ -10,7 +10,7 @@ module.exports.addPlant = (req, res) => {
         Description: req.body.Description,
         // get all file names from the form
         image: req.files.map(file => file.filename),
-        landscape: [{name: req.body.land1, content: req.body.landc1},{name: req.body.land2, content: req.body.landc2}],
+        landscape: [{name: req.body.land1, content: req.body.landc1},{name: req.body.land2, content: req.body.landc2},{name: req.body.land3, content: req.body.landc3}],
         botanical:[{name: req.body.bot1, content: req.body.botc1},{name: req.body.bot2, content: req.body.botc2}],
         horticulture: [{name: req.body.hort1, content: req.body.hortc1},{name: req.body.hort2, content: req.body.hortc2}],
         
@@ -81,6 +81,8 @@ module.exports.searchPlantByLetter = (req, res) => {
     });
 
 }
+
+
 
 
 
