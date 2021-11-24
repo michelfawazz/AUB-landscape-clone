@@ -1,0 +1,69 @@
+<% for (var i = 0; i < plant.length; i++) { %>
+    <div class= "profile">
+    <h1>Plant Profile</h1>
+    
+    
+    <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+    
+    <p><%= plant[i].Description %></p>
+    
+    
+    <div class="imageviews">
+     
+          <% for (var z = 0; z < plant[i].image.length; z++) { %>
+            <img src="/uploads/<%= plant[i].image[z]%>" alt="<%= plant[i].CommonName %>" class="img-thumbnail">
+    
+            <% } %>
+          
+    </div>
+    
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Landscape Information</a></li>
+        <li><a data-toggle="tab" href="#menu1">Botanical Description</a></li>
+        <li><a data-toggle="tab" href="#menu2">Horticulture Management</a></li>
+      </ul>
+    
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <br>
+            <br>
+           
+            <!-- from plant landscape loop over array and  print-->
+            <% for (var j = 0; j < plant[i].landscape.length; j++) { %>
+            <h6><%= plant[i].landscape[j].name %> <span>: <%= plant[i].landscape[j].content %></span></h6>
+            
+            <% } %>
+    
+    
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <br>
+            <% for (var j = 0; j < plant[i].botanical.length; j++) { %>
+              <h6><%= plant[i].botanical[j].name %> <span>: <%= plant[i].botanical[j].content %></span></h6>
+              
+            <% } %>
+          
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <br>
+          <% for (var j = 0; j < plant[i].horticulture.length; j++) { %>
+            <h6><%= plant[i].horticulture[j].name %> <span>: <%= plant[i].horticulture[j].content %></span></h6>
+            
+            <% } %>
+          </div>
+      </div>
+    
+ 
+    <% } %>
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+    

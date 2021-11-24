@@ -1,24 +1,45 @@
 const {Router} = require('express');
 const router = Router();
-const AdminController = require('../controllers/UserController');
+const UserController = require('../controllers/UserController');
 const plant = require('../models/plant');
 const path = require('path');
 let reqPath = path.join(__dirname, '../');
 
 
 router.get('/', function(req, res) {
-    // render index with another layout
-    res.render('index', { layout: './Layouts/UserLayout' });
+    plant.count().exec(function (err, count) {
 
+        // Get a random entry
+        var random = Math.floor(Math.random() * count)
+      
+        // Again query all users but only fetch one offset by our random #
+        plant.findOne().skip(random).exec(
+          function (err, result) {
+            if (err) {
+              console.log(err)
+            } else {
+              // If no errors, render the page
+              console.log(result);
+              res.render('index', {
+               
+                layout: false,
+                plant: result
+              });
+            }
+            
+          })
+      })
 });
+   
+
 
 router.get('/about', function(req, res) {
-    res.render('about', { layout: './Layouts/UserLayout' });
+    res.render('about', { layout: './Layouts/SearchLayout' });
 
 });
 
 router.get('/Links', function(req, res) {
-    res.render('links', { layout: './Layouts/UserLayout' });
+    res.render('links', { layout: './Layouts/SearchLayout' });
 
 });
 router.get('/Category', function(req, res) {
@@ -30,14 +51,16 @@ router.get('/SearchName', function(req, res) {
     res.render('SearchName', { layout: './Layouts/SearchLayout' });
 });
 
-router.post("/SearchByName", AdminController.searchPlantByName);
+router.post("/SearchByName", UserController.searchPlantByName);
 
-router.get("/Gallery", AdminController.displayAllPlants);
+router.get("/Gallery", UserController.displayAllPlants);
 
-router.get("/SearchCategory/:category",AdminController.searchPlantByCategory);
+router.get("/SearchCategory/:category",UserController.searchPlantByCategory);
 
-router.get('/SearchLetter/:Letter',AdminController.searchPlantByLetter);
+router.get('/SearchLetter/:Letter',UserController.searchPlantByLetter);
 
-router.get("/Gallery/:type", AdminController.displayPlantsByType);
+router.get("/Gallery/:Type", UserController.displayPlantsByType);
+
+router.get("/PlantProfile/:CommonName" , UserController.PlantProfile);
 
 module.exports = router;

@@ -82,6 +82,22 @@ module.exports.searchPlantByLetter = (req, res) => {
 
 }
 
+//modify plant in database
+module.exports.modifyPlant = (req, res) => {
+    let commonName = req.params.CommonName;
+    plant.find({CommonName: commonName}, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(plant);
+            res.render('modifyplant', {
+                plant: plant,
+            });
+        }
+    });
+}
+
+
 
 
 
@@ -94,7 +110,10 @@ module.exports.deletePlant = (req, res) => {
             console.log(err);
         } else {
             console.log(plant);
+            
+            
             res.redirect('/admin');
+           
         }
     });
 

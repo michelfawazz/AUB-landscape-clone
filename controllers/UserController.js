@@ -1,5 +1,23 @@
 const plant = require('../models/plant');
 
+
+
+//plant profile
+
+module.exports.PlantProfile = (req, res) => {
+    let commonName = req.params.CommonName;
+    plant.find({CommonName: commonName}, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('plantprofile', {
+                plant: plant
+            });
+        }
+    });
+};
+
+
 // search plant by category
 module.exports.searchPlantByCategory = (req, res) => {
     let category = req.params.category;
@@ -84,5 +102,4 @@ module.exports.displayPlantsByType = (req, res) => {
         }
     });
 }
-
 

@@ -5,8 +5,8 @@
     
     
     <!--href passing common name -->
-    <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
-    <div class = "AdminSearchRes">
+    
+    <div class = "AdminSearchRes magniflier">
         
     
      
@@ -18,12 +18,12 @@
                 <% } %>
             
             <% } %>
-
+            <a href="/PlantProfile/<%= plant[i].CommonName %>">
             <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
-    
+            </a>
     
     </div>
-    </a>
+   
     
 
     <hr>

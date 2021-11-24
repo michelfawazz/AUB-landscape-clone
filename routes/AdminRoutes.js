@@ -39,7 +39,11 @@ router.get('/addplant', (req, res) => {
 
 });
 
-router.get("/PlantProfile/:CommonName" , AdminController.PlantProfile);
+
+
+router.get("/PlantAdminProfile/:CommonName" , AdminController.PlantProfile);
+
+router.get("/ModifyPlant/:CommonName" , AdminController.modifyPlant);
 
 router.post('/add', upload,AdminController.addPlant);
 

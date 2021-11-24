@@ -3,7 +3,7 @@
 <div class="addplant">
 
 
-    <form action="/admin/modifyplant" method="post" enctype="multipart/form-data">
+    <form action="/admin/modifyplant/<%= plant[i].CommonName %>" method="post" enctype="multipart/form-data">
     <div>
         <!-- select with 6 options-->
         <label for="plant_type">Plant Category</label>
@@ -25,7 +25,7 @@
         <input type="text" name="ScientificName" placeholder="Scientific Name" value="<%= plant[i].ScientificName %>">
     </div>
     <div>
-        <textarea name="Description" placeholder="Description"></textarea>
+        <textarea name="Description" value="<%= plant[i].Description %>"></textarea>
     </div>
     
     <div >
@@ -51,14 +51,21 @@
                 value="French name" readonly>
     
                 <input type="text" class="form-control property-name-input" name="landc1"
-                placeholder="enter property">
+                value="<%= plant[i].landscape.content %>">
             </div>
             <div>
                 <input type="text" class="form-control property-name-input" name="land2"
                 value="Pronounciation" readonly>
     
                 <input type="text" class="form-control property-name-input" name="landc2"
-                placeholder="enter property">
+                value="<%= plant[i].landscape.content %>">
+            </div>
+            <div>
+                <input type="text" class="form-control property-name-input" name="land3"
+                value="Type" readonly>
+    
+                <input type="text" class="form-control property-name-input" name="landc3"
+                placeholder="<%= plant[i].landscape.content %>">
             </div>
     
           </div>
@@ -66,22 +73,22 @@
             <br>
             <div>
                 <input type="text" class="form-control property-name-input" name="bot1" value="Leaf Arrangement" readonly>
-                <input type="text" class="form-control property-name-input" name="botc1" placeholder="enter property">
+                <input type="text" class="form-control property-name-input" name="botc1" value="<%= plant[i].botanical.content %>">
             </div>
             <div>
                 <input type="text" class="form-control property-name-input" name="bot2" value="Leaf Persistance" readonly>
-                <input type="text" class="form-control property-name-input" name="botc2" placeholder="enter property">
+                <input type="text" class="form-control property-name-input" name="botc2" value="<%= plant[i].botanical.content %>">
             </div>
           </div>
         <div id="menu2" class="tab-pane fade">
           <br>
           <div>
             <input type="text" class="form-control property-name-input" name="hort1" value="Frost Tolerant" readonly>
-            <input type="text" class="form-control property-name-input" name="hortc1" placeholder="enter property">
+            <input type="text" class="form-control property-name-input" name="hortc1" value="<%= plant[i].horticulture.content %>">
         </div>
         <div>
             <input type="text" class="form-control property-name-input" name="hort2" value="Heat Tolerant" readonly>
-            <input type="text" class="form-control property-name-input" name="hortc2" placeholder="enter property">
+            <input type="text" class="form-control property-name-input" name="hortc2" value="<%= plant[i].horticulture.content %>">
         </div>
           </div>
    

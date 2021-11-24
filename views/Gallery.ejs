@@ -1,4 +1,17 @@
 <h1>Image Gallery</h1>
+<div class= "navgal">
+    <ul>
+        <li>Select Plant Type: </li>
+        <li><a href="/Gallery">All Types</a></li>
+        <li><a href="/Gallery/groundcover">Ground Covers</a></li>
+        <li><a href="/Gallery/lawn">Lawn</a></li>
+        <li><a href="/Gallery/palm">Palm</a></li>
+        <li><a href="/Gallery/shrub">Shrub</a></li>
+        <li><a href="/Gallery/tree">Tree</a></li>
+        <li><a href="/Gallery/vine">Vine</a></li>
+        
+    </ul>
+</div>
 <div class="Galgrid">
 <% for (var i = 0; i < plant.length; i++) { %>
     <div class= "Gallery">
@@ -7,7 +20,7 @@
         <!-- usinga grid display all the plants images and names under the image-->
         <div class="row">
             <div class="col-md-4">
-                <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
+                
                 <div class = "AdminSearchRe">
                     
                     
@@ -19,14 +32,23 @@
                             <% } %>
                     
                         <% } %>
-        
-                        <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
-        
+                        <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
+                            <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+                        </a>
                 </div>
-                </a>
+                
             </div>
         </div>
     </div>
     <% } %>
 
 </div>
+
+
+
+
+
+
+
+
+
