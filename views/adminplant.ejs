@@ -27,29 +27,78 @@
     <div id="home" class="tab-pane fade in active">
         <br>
         <br>
-       
+        <h3>General Information</h3>
         <!-- from plant landscape loop over array and  print-->
         <% for (var j = 0; j < plant.landscape.length; j++) { %>
+          <% if (plant.landscape[j].group == "general") { %>
         <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
-        
         <% } %>
+        <% } %>
+        <h3>Size / Shape</h3>
+        <!-- from plant landscape where group is equal to "Size/Shape" print the-->
+        <% for (var j = 0; j < plant.landscape.length; j++) { %>
+        <% if (plant.landscape[j].group == "Size/Shape") { %>
+        <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
+        <% } %>
+        <% } %>
+
+
+        
 
 
     </div>
     <div id="menu1" class="tab-pane fade">
         <br>
+        <h3>Foliage</h3>
         <% for (var j = 0; j < plant.botanical.length; j++) { %>
+          <% if (plant.botanical[j].group == "Foliage") { %>
           <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
-          
+          <% } %>
         <% } %>
+        <h3>Flower</h3>
+        <% for (var j = 0; j < plant.botanical.length; j++) { %>
+          <% if (plant.botanical[j].group == "Flower") { %>
+          <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+          <% } %>
+        <% } %>
+        <h3>Trunk</h3>
+        <% for (var j = 0; j < plant.botanical.length; j++) { %>
+          <% if (plant.botanical[j].group == "Trunk") { %>
+          <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+          <% } %>
+        <% } %>
+        <h3>Fruit</h3>
+        <% for (var j = 0; j < plant.botanical.length; j++) { %>
+          <% if (plant.botanical[j].group == "Fruit") { %>
+          <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+          <% } %>
+        <% } %>
+
+        
       
     </div>
     <div id="menu2" class="tab-pane fade">
-      <br>
+      <br><h3>Tolerance</h3>
       <% for (var j = 0; j < plant.horticulture.length; j++) { %>
+        <% if (plant.horticulture[j].group == "Tolerance") { %>
         <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
-        
         <% } %>
+        <% } %>
+        <h3>Requirements</h3>
+        <% for (var j = 0; j < plant.horticulture.length; j++) { %>
+          <% if (plant.horticulture[j].group == "Requirements") { %>
+          <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
+          <% } %>
+          <% } %>
+          <h3>Management</h3>
+          <% for (var j = 0; j < plant.horticulture.length; j++) { %>
+            <% if (plant.horticulture[j].group == "Management") { %>
+            <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
+            <% } %>
+            <% } %>
+
+
+
       </div>
   </div>
 

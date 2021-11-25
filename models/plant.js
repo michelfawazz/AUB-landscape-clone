@@ -6,7 +6,7 @@ const Property = new mongoose.Schema({
         // required : true,
     },
     content : {
-        type : String,
+        type : [String],
         // required : true,
     },
     group : {

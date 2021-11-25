@@ -11,6 +11,7 @@ module.exports.PlantProfile = (req, res) => {
             console.log(err);
         } else {
             res.render('plantprofile', {
+                layout: './Layouts/SearchLayout',
                 plant: plant
             });
         }
@@ -46,6 +47,7 @@ module.exports.searchPlantByName = (req, res) => {
             console.log(plant);
             res.render('plantresults', {
                 plant: plant,
+                layout: './Layouts/SearchLayout',
             });
         }
     });
@@ -102,4 +104,6 @@ module.exports.displayPlantsByType = (req, res) => {
         }
     });
 }
+
+
 

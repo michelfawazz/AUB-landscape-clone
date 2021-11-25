@@ -13,7 +13,7 @@
     </ul>
 </div>
 <div class="Galgrid">
-<% for (var i = 0; i < plant.length; i++) { %>
+    <% for (var i = 0; i < plant.length; i++) { %>
     <div class= "Gallery">
     
     
@@ -32,8 +32,8 @@
                             <% } %>
                     
                         <% } %>
-                        <a href="/admin/PlantProfile/<%= plant[i].CommonName %>">
-                            <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
+                        <a href="/PlantProfile/<%= plant[i].CommonName %>">
+                            <h4><%= plant[i].CommonName %> <br></h4>
                         </a>
                 </div>
                 
