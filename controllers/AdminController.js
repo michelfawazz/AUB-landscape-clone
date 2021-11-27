@@ -81,8 +81,11 @@ module.exports.updatePlant = (req, res) => {
         ScientificName: req.body.ScientificName.toLowerCase(),
         origin: req.body.origin,
         Description: req.body.Description,
-        // get all file names from the form
+       
+
+
         image: req.files.map(file => file.filename),
+
         landscape: [
             {name: "French name", content: req.body.landc1, group: "general"},
             {name: "Pronounciation", content: req.body.landc2, group: "general"},

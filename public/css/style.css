@@ -577,15 +577,22 @@ nav {
 }
 
 
-.labelform{
-    color: lightgray;
+
+
+   
+.addplant label{
+    color: black;
     font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+}
+
+
+.addplant .labelform{
+    color: black;
+    font-size: 14px;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-   
-}
-
-

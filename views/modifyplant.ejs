@@ -4,7 +4,7 @@
 
 
     <form action="/admin/update/<%=plant._id %>" method="post" enctype="multipart/form-data">
-    <div>
+    <div class="form-group">
         <!-- select with 6 options-->
         <label for="plant_type">Plant Category</label>
         <select id="category" name="category">
@@ -18,16 +18,18 @@
         </select>
 
     </div>
-    <div>
-        <input type="text" name="CommonName" value="<%=plant.CommonName%>" placeholder="Common Name">
+    <div class="form-group">
+        <label class="labelform">Common Name</label>
+        <input type="text" class="form-control" name="CommonName" value="<%=plant.CommonName%>" placeholder="Common Name">
     </div>
-    <div> 
-        <input type="text" name="ScientificName" value="<%=plant.ScientificName%>" placeholder="Scientific Name">
+    <div class="form-group"> 
+        <label class="labelform">Scientific Name</label>
+        <input type="text" class="form-control" name="ScientificName" value="<%=plant.ScientificName%>" placeholder="Scientific Name">
     </div>
     <!-- select origin from drop down-->
-    <div>
-        <label for="origin">Origin</label>
-        <select name="origin" value="<%=plant.origin%>">
+    <div class="form-group">
+        <label for="origin" class="labelform">Origin</label>
+        <select class="form-control" name="origin" value="<%=plant.origin%>">
             <option <%=plant.origin=="Africa"?'selected':''%> value="Africa">Africa</option>
             <option <%=plant.origin=="Asia"?'selected':''%> value="Asia">Asia</option>
             <option <%=plant.origin=="Australia"?'selected':''%> value="Australia">Australia</option>
@@ -38,12 +40,27 @@
     </div>
 
 
-    <div>
-        <textarea name="Description" placeholder="Description"><%=plant.Description%></textarea>
+    <div class="form-group">
+        <label class="labelform">Description</label> 
+        <textarea class="form-control" style="max-width: 100%" name="Description" placeholder="Description"><%=plant.Description%></textarea>
     </div>
+
+
+    <div class="imageviews">
+        
+        <% for (var z = 0; z < plant.image.length; z++) { %>
+          <img src="/uploads/<%= plant.image[z]%>" class="img-thumbnail">
+            <!--append to image value-->
+            
+  
+          <% } %>
+        
+  </div>
     
-    <div >
-        <input type="file" name="image" value="<%=plant.image%>" id="image" multiple>
+
+    <div class="form-group">
+        <label for="image" class="labelform">Upload Images of the Plant</label>
+        <input class="form-control-file"type="file" name="image" value="<%=plant.image%>" id="image" multiple>
     </div>
     <br>
 
@@ -61,18 +78,18 @@
             <br>
            
             <div>
-                <label for="landc1">French name: </label>
+                <label for="landc1" class="labelform">French name: </label>
     
                 <input type="text" class="form-control property-name-input" name="landc1" value="<%=plant.landc1%>" placeholder="enter property">
             </div>
             <div>
-                <label for="landc2">Pronounciation</label>
+                <label for="landc2"class="labelform">Pronounciation</label>
     
                 <input type="text" class="form-control property-name-input" name="landc2" value="<%=plant.landc2%>" placeholder="enter property">
             </div>
             <div>
                 <!-- plant type 5 checkboxes with options -->
-                <label >Plant Type</label>
+                <label class="labelform">Plant Type</label>
                 <div class="checkbox">
                     <label><input type="checkbox" name="landc3" <%=plant.landc3.includes("cactus")?"checked":""%> value="cactus">Cactus/</label>
                     <label><input type="checkbox" name="landc3" <%=plant.landc3.includes("groundcover")?"checked":""%> value="groundcover">Ground Cover</label>
@@ -88,9 +105,9 @@
 
             </div>
             <div>
-                <label for="landc4">Uses</label>
+                <label for="landc4" class="labelform">Uses</label>
                 <!-- Plant uses drop down select with 10 options -->
-                <label class="checkbox">
+                <div class="checkbox">
                 
                     <label><input type="checkbox" name="landc4" <%=plant.landc4.includes("Screen")?"checked":""%> value='Screen'>Screen</label>
                     <label><input type="checkbox" name="landc4" <%=plant.landc4.includes("Hedge")?"checked":""%> value='Hedge'>Hedge</label>
@@ -121,7 +138,7 @@
                     <label><input type="checkbox" name="landc4" <%=plant.landc4.includes("Extensive Green Roof")?"checked":""%> value='Extensive Green Roof'>Extensive Green Roof</label>
                     <label><input type="checkbox" name="landc4" <%=plant.landc4.includes("Facade")?"checked":""%> value='Facade'>Facade</label>
 
-                </select>
+                </div>
 
                 
 
@@ -129,7 +146,7 @@
             </div>
 
             <div>
-                <label for="landc5">Growth Rate</label><br>
+                <label for="landc5" class="labelform">Growth Rate</label><br>
                 <input type="radio" name="landc5" <%=plant.landc5.includes("Slow")?"checked":""%> value="Slow">
                 <label >Slow</label><br>
                 <input type="radio"  name="landc5" <%=plant.landc5.includes("Moderate")?"checked":""%> value="Moderate">
@@ -139,7 +156,7 @@
     
             </div>
             <div>
-                <label for="landc6">Tree Shape</label>
+                <label for="landc6" class="labelform">Tree Shape</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="landc6" <%=plant.landc6.includes("Weeping")?"checked":""%> value="Weeping">Weeping</label>
@@ -156,7 +173,7 @@
                 
             </div>
             <div>
-                <label for="lanc7">Cannopy Symmetry</label><br>
+                <label for="lanc7" class="labelform">Cannopy Symmetry</label><br>
                 <input type="radio" name="landc7" <%=plant.landc7.includes("Irregular")?"checked":""%> value="Irregular">
                 <label>Irregular</label><br>
                 <input type="radio"  name="landc7" <%=plant.landc7.includes("Symmetrical")?"checked":""%> value="Symmetrical">
@@ -165,7 +182,7 @@
     
             </div>
             <div>
-                <label for="lanc8">Cannopy Density</label><br>
+                <label for="lanc8" class="labelform">Cannopy Density</label><br>
                 <input type="radio" name="landc8" <%=plant.landc8.includes("Medium")?"checked":""%> value="Medium">
                 <label>Medium</label><br>
                 <input type="radio"  name="landc8" <%=plant.landc8.includes("Dense")?"checked":""%> value="Dense">
@@ -173,7 +190,7 @@
             
             </div>
             <div>
-                <label for="lanc9">Plant Height</label><br>
+                <label for="lanc9" class="labelform">Plant Height</label><br>
                 <input type="radio" name="landc9" <%=plant.landc9.includes("0-0.5m")?"checked":""%> value="0-0.5m">
                 <label>0-0.5m</label>
                 <input type="radio"  name="landc9" <%=plant.landc9.includes("0.5-1m")?"checked":""%> value="0.5-1m">
@@ -199,7 +216,7 @@
             </div>
 
             <div>
-                <label for="lanc10">Plant Spread</label><br>
+                <label for="lanc10" class="labelform">Plant Spread</label><br>
                 <input type="radio" name="landc10" <%=plant.landc10.includes("0-0.5m")?"checked":""%> value="0-0.5m">
                 <label>0-0.5m</label>
                 <input type="radio"  name="landc10" <%=plant.landc10.includes("0.5-1m")?"checked":""%> value="0.5-1m">
@@ -225,7 +242,7 @@
             </div>
 
             <div>
-                <label for="lanc11">Time to Ultimate Height</label><br>
+                <label for="lanc11"class="labelform">Time to Ultimate Height</label><br>
                 <input type="radio" name="landc11" <%=plant.landc11.includes("0-1 years")?"checked":""%> value="0-1 years">
                 <label>0-1 years</label>
                 <input type="radio"  name="landc11" <%=plant.landc11.includes("1-2 years")?"checked":""%> value="1-2 years">
@@ -248,7 +265,7 @@
             <br>
             <div>
                 
-                <label for="botc1">Leaf Arrangement</label><br>
+                <label for="botc1" class="labelform">Leaf Arrangement</label><br>
                 <input type="radio" name="botc1" <%=plant.botc1.includes("Alternate")?"checked":""%> value="Alternate">
                 <label >Alternate</label>
                 <input type="radio"  name="botc1" <%=plant.botc1.includes("Spiral")?"checked":""%> value="Spiral">
@@ -259,7 +276,7 @@
                 <label >Whorled</label><br>
             </div>
             <div>
-                <label for="botc2">Leaf Persistence</label><br>
+                <label for="botc2" class="labelform">Leaf Persistence</label><br>
                 <input type="radio" name="botc2" <%=plant.botc2.includes("Evergreen")?"checked":""%> value="Evergreen">
                 <label >Evergreen</label>
                 <input type="radio"  name="botc2" <%=plant.botc2.includes("Semi Evergreen")?"checked":""%> value="Semi Evergreen">
@@ -269,7 +286,7 @@
                 
             </div>
             <div>
-                <label for="botc3">Color Growing Season</label><br>
+                <label for="botc3" class="labelform">Color Growing Season</label><br>
                 <input type="radio" name="botc3" <%=plant.botc3.includes("Green")?"checked":""%> value="Green">
                 <label >Green</label>
                 <input type="radio"  name="botc3" <%=plant.botc3.includes("Yellow")?"checked":""%> value="Yellow">
@@ -290,7 +307,7 @@
             </div>
 
             <div>
-                <label for="botc4">Color Changing Season</label><br>
+                <label for="botc4" class="labelform">Color Changing Season</label><br>
                 <input type="radio" name="botc4" <%=plant.botc4.includes("Green")?"checked":""%> value="Green">
                 <label >Green</label>
                 <input type="radio"  name="botc4" <%=plant.botc4.includes("Yellow")?"checked":""%> value="Yellow">
@@ -309,7 +326,7 @@
             </div>
 
             <div>
-                <label for="botc5">Flower Color</label>
+                <label for="botc5" class="labelform">Flower Color</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="botc5" <%=plant.botc5.includes("White")?"checked":""%> value="White">White</label>
@@ -328,7 +345,7 @@
 
 
             <div>
-                <label for="botc6">Flower Scent</label><br>
+                <label for="botc6" class="labelform">Flower Scent</label><br>
                 <input type="radio" name="botc6" <%=plant.botc6.includes("Pleasant")?"checked":""%> value="Pleasant">
                 <label >Pleasant</label>
                 <input type="radio"  name="botc6" <%=plant.botc6.includes("Unpleasant")?"checked":""%> value="Unpleasant">
@@ -341,7 +358,7 @@
            
 
             <div>
-                <label for="botc7">Flower Seasons</label>
+                <label for="botc7" class="labelform">Flower Seasons</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="botc7" <%=plant.botc7.includes("Spring")?"checked":""%> value="Spring">Spring</label>
@@ -356,7 +373,7 @@
             </div>
 
             <div>
-                <label for="botc8">Showiness</label><br>
+                <label for="botc8" class="labelform">Showiness</label><br>
                 <input type="radio" name="botc8" <%=plant.botc8.includes("Yes")?"checked":""%> value="Yes">
                 <label >Yes</label>
                 
@@ -366,7 +383,7 @@
             </div>
 
             <div>
-                <label for="botc9">Trunk Esthetic Value</label>
+                <label for="botc9" class="labelform">Trunk Esthetic Value</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="botc9" <%=plant.botc9.includes("Showy")?"checked":""%> value="Showy">Showy</label>
@@ -382,7 +399,7 @@
             </div>
 
             <div>
-                <label for="botc10">Number of Trunks</label><br>
+                <label for="botc10" class="labelform">Number of Trunks</label><br>
                 <input type="radio" name="botc10" <%=plant.botc10.includes("Single")?"checked":""%>" value="Single">
                 <label >Single</label>
                 
@@ -391,7 +408,7 @@
                 
             </div>
             <div>
-                <label for="botc11">Fruit Showiness</label><br>
+                <label for="botc11" class="labelform">Fruit Showiness</label><br>
                 <input type="radio" name="botc11" <%=plant.botc11.includes("Yes")?"checked":""%> value="Yes">
                 <label >Yes</label>
                 
@@ -401,7 +418,7 @@
             </div>
 
             <div>
-                <label for="botc12">Fruit Color</label>
+                <label for="botc12" class="labelform">Fruit Color</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="botc12" <%=plant.botc12.includes("White")?"checked":""%> value="White">White</label>
@@ -421,7 +438,7 @@
                 
             </div>
             <div>
-                <label for="botc13">Fruit Size</label><br>
+                <label for="botc13" class="labelform">Fruit Size</label><br>
                 <input type="radio" name="botc13" <%=plant.botc13.includes("0-1.5m")?"checked":""%> value="0-1.5m">
                 <label>0-0.5m</label>
                 <input type="radio"  name="botc13" <%=plant.botc13.includes("1.5-3m")?"checked":""%> value="1.5-3m">
@@ -438,7 +455,7 @@
             </div>
 
             <div>
-                <label for="botc14">Seasons</label>
+                <label for="botc14" class="labelform">Seasons</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="botc14" <%=plant.botc14.includes("Spring")?"checked":""%> value="Spring">Spring</label>
@@ -454,7 +471,7 @@
             </div>
 
             <div>
-                <label for="botc15">Fruit Type</label><br>
+                <label for="botc15" class="labelform">Fruit Type</label><br>
                 <input type="radio" name="botc15" <%=plant.botc15.includes("Dry")?"checked":""%> value="Dry">
                 <label >Dry</label>
                
@@ -471,7 +488,7 @@
         <div id="menu2" class="tab-pane fade">
           <br>
             <div>
-                <label for="hortc1">Frost Tolerant</label><br>
+                <label for="hortc1" class="labelform">Frost Tolerant</label><br>
             
                 
                 <input type="radio" name="hortc1" <%=plant.hortc1.includes("Yes")?"checked":""%> value="Yes">
@@ -489,7 +506,7 @@
             
             
             <div>
-                <label for="hortc2">Heat Tolerant</label><br>                
+                <label for="hortc2" class="labelform">Heat Tolerant</label><br>                
                 
                 
                 <input type="radio" name="hortc2" <%=plant.hortc2.includes("Yes")?"checked":""%> value="Yes">
@@ -502,7 +519,7 @@
             </div>
 
             <div>
-                <label for="hortc3">Light Requirements</label>
+                <label for="hortc3" class="labelform">Light Requirements</label>
 
                 <div class="checkbox">
                     <label><input type="checkbox" name="hortc3" <%=plant.hortc3.includes("Spring")?"checked":""%> value="Spring">Full</label>
@@ -516,7 +533,7 @@
             </div>
 
             <div>
-                <label for="hortc4">Water Requirement</label><br>
+                <label for="hortc4" class="labelform">Water Requirement</label><br>
             
                 
                 <input type="radio" name="hortc4" <%=plant.hortc4.includes("Low")?"checked":""%> value="Low">
@@ -529,7 +546,7 @@
             </div>
 
             <div>
-                <label for="hortc5">Toxic</label><br>
+                <label for="hortc5 class="labelform"">Toxic</label><br>
             
                 
                 <input type="radio" name="hortc5" <%=plant.hortc5.includes("Yes")?"checked":""%> value="Yes">
@@ -542,7 +559,7 @@
                 
             </div>
             <div>
-                <label for="hortc6">Invasive</label><br>
+                <label for="hortc6" class="labelform">Invasive</label><br>
             
                 
                 <input type="radio" name="hortc6" <%=plant.hortc6.includes("Yes")?"checked":""%> value="Yes">
@@ -554,7 +571,7 @@
                 
             </div>
             <div>
-                <label for="hortc7">Suseptibility to diseases</label><br>
+                <label for="hortc7" class="labelform">Suseptibility to diseases</label><br>
             
                 
                 <input type="radio" name="hortc7" <%=plant.hortc7.includes("Yes")?"checked":""%> value="Yes">
@@ -568,7 +585,7 @@
             </div>
 
             <div>
-                <label for="hortc8">Fruit / leaves Flower Litter</label><br>
+                <label for="hortc8" class="labelform">Fruit / leaves Flower Litter</label><br>
             
                 
                 <input type="radio" name="hortc8" <%=plant.hortc8.includes("Yes")?"checked":""%> value="Yes">
@@ -581,7 +598,7 @@
             </div>
 
             <div>
-                <label for="hortc9">Surface Rooting</label><br>
+                <label for="hortc9" class="labelform">Surface Rooting</label><br>
             
                 
                 <input type="radio" name="hortc9" <%=plant.hortc9.includes("Yes")?"checked":""%> value="Yes">
@@ -595,7 +612,7 @@
             </div>
 
             <div>
-                <label for="hortc10">Life Span</label><br>
+                <label for="hortc10" class="labelform">Life Span</label><br>
             
                 
                 <input type="radio" name="hortc10" <%=plant.hortc10.includes("<25")?"checked":""%> value="<25">     
