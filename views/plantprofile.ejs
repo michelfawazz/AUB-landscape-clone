@@ -30,15 +30,22 @@
           <h3>General Information</h3>
           <!-- from plant landscape loop over array and  print-->
           <% for (var j = 0; j < plant.landscape.length; j++) { %>
+
             <% if (plant.landscape[j].group == "general") { %>
-          <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
-          <% } %>
+              <!--if value null dont show-->
+              <% if (plant.landscape[j].content != "") { %>
+                
+                <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
+              <% } %>
+            <% } %>
           <% } %>
           <h3>Size / Shape</h3>
           <!-- from plant landscape where group is equal to "Size/Shape" print the-->
           <% for (var j = 0; j < plant.landscape.length; j++) { %>
           <% if (plant.landscape[j].group == "Size/Shape") { %>
+            <% if (plant.landscape[j].content != "") { %>
           <h6><%= plant.landscape[j].name %> <span>: <%= plant.landscape[j].content %></span></h6>
+          <% } %>
           <% } %>
           <% } %>
   
@@ -52,25 +59,33 @@
           <h3>Foliage</h3>
           <% for (var j = 0; j < plant.botanical.length; j++) { %>
             <% if (plant.botanical[j].group == "Foliage") { %>
+              <% if (plant.botanical[j].content != "") { %>
             <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+            <% } %>
             <% } %>
           <% } %>
           <h3>Flower</h3>
           <% for (var j = 0; j < plant.botanical.length; j++) { %>
             <% if (plant.botanical[j].group == "Flower") { %>
+              <% if (plant.botanical[j].content != "") { %>
             <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+            <% } %>
             <% } %>
           <% } %>
           <h3>Trunk</h3>
           <% for (var j = 0; j < plant.botanical.length; j++) { %>
             <% if (plant.botanical[j].group == "Trunk") { %>
+              <% if (plant.botanical[j].content != "") { %>
             <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+            <% } %>
             <% } %>
           <% } %>
           <h3>Fruit</h3>
           <% for (var j = 0; j < plant.botanical.length; j++) { %>
             <% if (plant.botanical[j].group == "Fruit") { %>
+              <% if (plant.botanical[j].content != "") { %>
             <h6><%= plant.botanical[j].name %> <span>: <%= plant.botanical[j].content %></span></h6>
+            <% } %>
             <% } %>
           <% } %>
   
@@ -81,19 +96,27 @@
         <br><h3>Tolerance</h3>
         <% for (var j = 0; j < plant.horticulture.length; j++) { %>
           <% if (plant.horticulture[j].group == "Tolerance") { %>
+            <!-- if value null dont show-->
+            <% if (plant.horticulture[j].content != "") { %>
+
           <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
+          <% } %>
           <% } %>
           <% } %>
           <h3>Requirements</h3>
           <% for (var j = 0; j < plant.horticulture.length; j++) { %>
             <% if (plant.horticulture[j].group == "Requirements") { %>
+              <% if (plant.horticulture[j].content != "") { %>
             <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
+            <% } %>
             <% } %>
             <% } %>
             <h3>Management</h3>
             <% for (var j = 0; j < plant.horticulture.length; j++) { %>
               <% if (plant.horticulture[j].group == "Management") { %>
+                <% if (plant.horticulture[j].content != "") { %>
               <h6><%= plant.horticulture[j].name %> <span>: <%= plant.horticulture[j].content %></span></h6>
+              <% } %>
               <% } %>
               <% } %>
   
@@ -107,11 +130,8 @@
     
 
     
-
-
-    <script>
-      
-    </script>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='/pdfdownload/<%= plant._id %>'">Download pdf</button>
+    
 
     
     

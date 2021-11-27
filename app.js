@@ -23,9 +23,7 @@ app.set("view engine", "ejs");
 //database
 const mongoose = require('mongoose');
 const { application } = require('express');
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
-
-
+mongoose.connect("mongodb+srv://michel:cmps278@cmps278plants.6wb92.mongodb.net/CMPS278Plants?retryWrites=true&w=majority", { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Connected to MongoDB'));

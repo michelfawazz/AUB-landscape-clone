@@ -9,7 +9,7 @@
     <div class = "AdminSearchRes">
         
     
-     
+        <% if (plant[i].image !=null ) { %>
           <% for (var z = 0; z < plant[i].image.length; z++) { %>
             <!--only show the first image-->
             <% if (z == 0) { %>
@@ -28,6 +28,8 @@
 
     <hr>
     <% } %>
+    <% } %>
+    
     
     
     

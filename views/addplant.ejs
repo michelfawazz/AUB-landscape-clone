@@ -4,10 +4,10 @@
     
     
         <form action="/admin/add" method="post" enctype="multipart/form-data">
-        <div>
+        <div class="form-group">
             <!-- select with 6 options-->
-            <label for="plant_type">Plant Category</label>
-            <select name="category">
+            <label for="plant_type" class="labelform">Plant Category</label>
+            <select class="form-control" name="category">
                 <option value="Fragant">Fragant</option>
                 <option value="Flowering">Flowering</option>
                 <option value="Edible">Edible</option>
@@ -18,18 +18,36 @@
             </select>
 
         </div>
-        <div>
-            <input type="text" name="CommonName" placeholder="Common Name">
+        <div class="form-group">
+            <label class="labelform">Common Name</label>
+            <input type="text" class="form-control" name="CommonName" placeholder="Common Name">
         </div>
-        <div> 
-            <input type="text" name="ScientificName" placeholder="Scientific Name">
+        <div class="form-group"> 
+            <label class="labelform">Scientific Name</label>
+            <input type="text" class="form-control" name="ScientificName" placeholder="Scientific Name">
         </div>
-        <div>
-            <textarea name="Description" placeholder="Description"></textarea>
+        <!-- select origin from drop down-->
+        <div class="form-group">
+            <label for="origin" class="labelform">Origin</label>
+            <select class="form-control" name="origin">
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+            </select>
+        </div>
+   
+
+        <div class="form-group">
+            <label class="labelform">Description</label> 
+            <textarea class="form-control rounded-0" style="max-width: 100%" name="Description" placeholder="Description"></textarea>
         </div>
         
-        <div >
-            <input type="file" name="image" id="image" multiple>
+        <div class="form-group">
+            <label for="image" class="labelform">Upload Images of the Plant</label>
+            <input type="file" class="form-control-file" name="image" id="image" multiple>
         </div>
         <br>
 
@@ -46,39 +64,47 @@
                 <br>
                 <br>
                
-                <div>
-                    <label for="landc1">French name: </label>
+                <div class="form-group">
+                    <label for="landc1" class="labelform">French name: </label>
         
                     <input type="text" class="form-control property-name-input" name="landc1" placeholder="enter property">
                 </div>
-                <div>
-                    <label for="landc2">Pronounciation</label>
+                <div class="form-group">
+                    <label for="landc2" class="labelform">Pronounciation</label>
         
                     <input type="text" class="form-control property-name-input" name="landc2" placeholder="enter property">
                 </div>
-                <div>
+                <div div class="form-group">
                     <!-- plant type 5 checkboxes with options -->
-                    <label >Plant Type</label>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="landc3" value="Cactus/Succulent">Cactus/Succulent</label>
-                        <label><input type="checkbox" name="landc3" value="GroundCover">Ground Cover</label>
-                        <label><input type="checkbox" name="landc3" value="Lawn">Lawn</label>
-                        <label><input type="checkbox" name="landc3" value="Palm">Palm</label>
-                        <label><input type="checkbox" name="landc3" value="Shrub">Shrub</label>
-                        <label><input type="checkbox" name="landc3" value="Tree">Tree</label>
-                        <label><input type="checkbox" name="landc3" value="Vine">Vine</label>
+                    <label class="form-check-label" class="labelform">Plant Type: </label>
+                    
+                        <div class="form-group">
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="cactus">
+                        <label>Cactus</label>
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="tree">
+                        <label>Tree</label>
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="shrub">
+                        <label>Shrub</label>
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="palm">
+                        <label>Palm</label>
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="lawn">
+                        <label>Lawn</label>
+                        <input class="form-check-input"  type="checkbox" name="landc3" value="vine">
+                        <label>Vine</label></div>
+
                     </div>
-                        
+
+
+
 
                     
-
-                </div>
-                <div>
-                    <label for="landc4">Uses</label>
+                
+                <div class="form-group  ">
+                    <label for="landc4" class="labelform">Uses: </label>
                     <!-- Plant uses drop down select with 10 options -->
-                    <label class="checkbox">
-                    
-                        <label><input type="checkbox" name="landc4" value='Screen'>Screen</label>
+                   
+                    <div class="form-group">
+                        <label><input  class="form-check-input" type="checkbox" name="landc4" value='Screen'>Screen</label>
                         <label><input type="checkbox" name="landc4" value='Hedge'>Hedge</label>
                         <label><input type="checkbox" name="landc4" value='Mass Planting'>Mass Planting</label>
                         <label><input type="checkbox" name="landc4" value='Specimen'>Specimen</label>
@@ -107,15 +133,15 @@
                         <label><input type="checkbox" name="landc4" value='Extensive Green Roof'>Extensive Green Roof</label>
                         <label><input type="checkbox" name="landc4" value='Facade'>Facade</label>
 
-                    </select>
+                     </div>
 
                     
 
         
                 </div>
 
-                <div>
-                    <label for="landc5">Growth Rate</label><br>
+                <div class="form-group">
+                    <label for="landc5" class="labelform">Growth Rate</label><br>
                     <input type="radio" name="landc5" value="Slow">
                     <label >Slow</label><br>
                     <input type="radio"  name="landc5" value="Moderate">
@@ -124,12 +150,12 @@
                     <label >Fast</label><br><br>
         
                 </div>
-                <div>
-                    <label for="landc6">Tree Shape</label>
+                <div class="form-group">
+                    <label for="landc6" class="labelform">Tree Shape</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="landc6" value="Weeping">Weeping</label>
-                        <label><input type="checkbox" name="landc6" value="Upright/Erect">Upright/Erect</label>
+                        <label><input type="checkbox" name="landc6" value="Upright/Erect">Upright</label>
                         <label><input type="checkbox" name="landc6" value="Vase">Vase</label>
                         <label><input type="checkbox" name="landc6" value="Pyramidal">Pyramidal</label>
                         <label><input type="checkbox" name="landc6" value="Rounded">Rounded</label>
@@ -142,8 +168,8 @@
         
                     
                 </div>
-                <div>
-                    <label for="lanc7">Cannopy Symmetry</label><br>
+                <div class="form-group">
+                    <label for="lanc7" class="labelform">Cannopy Symmetry</label><br>
                     <input type="radio" name="landc7" value="Irregular">
                     <label>Irregular</label><br>
                     <input type="radio"  name="landc7" value="Symmetrical">
@@ -151,16 +177,17 @@
                     
         
                 </div>
-                <div>
-                    <label for="lanc8">Cannopy Density</label><br>
+                <div class="form-group">
+                    <label for="lanc8" class="labelform">Cannopy Density</label><br>
                     <input type="radio" name="landc8" value="Medium">
                     <label>Medium</label><br>
                     <input type="radio"  name="landc8" value="Dense">
                     <label >Dense</label><br>  
                 
                 </div>
-                <div>
-                    <label for="lanc9">Plant Height</label><br>
+                <div class="form-group">
+                    <label for="lanc9" class="labelform">Plant Height</label><br>
+                    
                     <input type="radio" name="landc9" value="0-0.5m">
                     <label>0-0.5m</label>
                     <input type="radio"  name="landc9" value="0.5-1m">
@@ -185,8 +212,8 @@
                 
                 </div>
 
-                <div>
-                    <label for="lanc10">Plant Spread</label><br>
+                <div class="form-group">
+                    <label for="lanc10" class="labelform">Plant Spread</label><br>
                     <input type="radio" name="landc10" value="0-0.5m">
                     <label>0-0.5m</label>
                     <input type="radio"  name="landc10" value="0.5-1m">
@@ -211,8 +238,8 @@
                 
                 </div>
 
-                <div>
-                    <label for="lanc11">Time to Ultimate Height</label><br>
+                <div class="form-group">
+                    <label for="lanc11" class="labelform">Time to Ultimate Height</label><br>
                     <input type="radio" name="landc11" value="0-1 years">
                     <label>0-1 years</label>
                     <input type="radio"  name="landc11" value="1-2 years">
@@ -233,9 +260,9 @@
               </div>
             <div id="menu1" class="tab-pane fade">
                 <br>
-                <div>
+                <div class="form-group">
                     
-                    <label for="botc1">Leaf Arrangement</label><br>
+                    <label for="botc1" class="labelform">Leaf Arrangement</label><br>
                     <input type="radio" name="botc1" value="Alternate">
                     <label >Alternate</label>
                     <input type="radio"  name="botc1" value="Spiral">
@@ -245,8 +272,8 @@
                     <input type="radio" name="botc1" value="Whorled">
                     <label >Whorled</label><br>
                 </div>
-                <div>
-                    <label for="botc2">Leaf Persistence</label><br>
+                <div class="form-group"> 
+                    <label for="botc2" class="labelform">Leaf Persistence</label><br>
                     <input type="radio" name="botc2" value="Evergreen">
                     <label >Evergreen</label>
                     <input type="radio"  name="botc2" value="Semi Evergreen">
@@ -255,8 +282,8 @@
                     <label >Decidious</label><br>
                     
                 </div>
-                <div>
-                    <label for="botc3">Color Growing Season</label><br>
+                <div class="form-group">
+                    <label for="botc3" class="labelform">Color Growing Season</label><br>
                     <input type="radio" name="botc3" value="Green">
                     <label >Green</label>
                     <input type="radio"  name="botc3" value="Yellow">
@@ -276,8 +303,8 @@
                     
                 </div>
 
-                <div>
-                    <label for="botc4">Color Changing Season</label><br>
+                <div class="form-group">
+                    <label for="botc4" class="labelform">Color Changing Season</label><br>
                     <input type="radio" name="botc4" value="Green">
                     <label >Green</label>
                     <input type="radio"  name="botc4" value="Yellow">
@@ -295,10 +322,10 @@
 
                 </div>
 
-                <div>
-                    <label for="botc5">Flower Color</label>
+                <div class="form-group">
+                    <label for="botc5" class="labelform">Flower Color</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="botc5" value="White">White</label>
                         <label><input type="checkbox" name="botc5" value="Pink">Pink</label>
                         <label><input type="checkbox" name="botc5" value="Purple">Purple</label>
@@ -315,8 +342,8 @@
                 </div>
 
 
-                <div>
-                    <label for="botc6">Flower Scent</label><br>
+                <div class="form-group">
+                    <label for="botc6" class="labelform">Flower Scent</label><br>
                     <input type="radio" name="botc6" value="Pleasant">
                     <label >Pleasant</label>
                     <input type="radio"  name="botc6" value="Unpleasant">
@@ -328,10 +355,10 @@
 
                
 
-                <div>
-                    <label for="botc7">Flower Seasons</label>
+                <div class="form-group">
+                    <label for="botc7" class="labelform">Flower Seasons</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="botc7" value="Spring">Spring</label>
                         <label><input type="checkbox" name="botc7" value="Winter">Winter</label>
                         <label><input type="checkbox" name="botc7" value="Summer">Summer</label>
@@ -344,8 +371,8 @@
                     
                 </div>
 
-                <div>
-                    <label for="botc8">Showiness</label><br>
+                <div class="form-group">
+                    <label for="botc8" class="labelform">Showiness</label><br>
                     <input type="radio" name="botc8" value="Yes">
                     <label >Yes</label>
                     
@@ -354,10 +381,10 @@
                     
                 </div>
 
-                <div>
-                    <label for="botc9">Trunk Esthetic Value</label>
+                <div class="form-group">
+                    <label for="botc9" class="labelform">Trunk Esthetic Value</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="botc9" value="Showy">Showy</label>
                         <label><input type="checkbox" name="botc9" value="Not showy">Not showy</label>
                         <label><input type="checkbox" name="botc9" value="Smooth texture">Smooth texture</label>
@@ -370,8 +397,8 @@
                     
                 </div>
 
-                <div>
-                    <label for="botc10">Number of Trunks</label><br>
+                <div class="form-group">
+                    <label for="botc10" class="labelform">Number of Trunks</label><br>
                     <input type="radio" name="botc10" value="Single">
                     <label >Single</label>
                     
@@ -379,7 +406,7 @@
                     <label >Multi</label>
                     
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="botc11">Fruit Showiness</label><br>
                     <input type="radio" name="botc11" value="Yes">
                     <label >Yes</label>
@@ -389,10 +416,10 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="botc12">Fruit Color</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="botc12" value="White">White</label>
                         <label><input type="checkbox" name="botc12" value="Pink">Pink</label>
                         <label><input type="checkbox" name="botc12" value="Purple">Purple</label>
@@ -408,8 +435,8 @@
                     </div>
         
                     
-                </div>3
-                <div>
+                </div>
+                <div class="form-group">
                     <label for="botc13">Fruit Size</label><br>
                     <input type="radio" name="botc13" value="0-1.5m">
                     <label>0-0.5m</label>
@@ -426,10 +453,10 @@
 
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="botc14">Seasons</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="botc14" value="Spring">Spring</label>
                         <label><input type="checkbox" name="botc14" value="Winter">Winter</label>
                         <label><input type="checkbox" name="botc14" value="Summer">Summer</label>
@@ -442,9 +469,9 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="botc15">Fruit Type</label><br>
-                    <input type="radio" name="botc11" value="Dry">
+                    <input type="radio" name="botc15" value="Dry">
                     <label >Dry</label>
                    
                     
@@ -459,7 +486,7 @@
               </div>
             <div id="menu2" class="tab-pane fade">
               <br>
-                <div>
+                <div class="form-group">
                     <label for="hortc1">Frost Tolerant</label><br>
                 
                     
@@ -477,7 +504,7 @@
 
                 
                 
-                <div>
+                <div class="form-group">
                     <label for="hortc2">Heat Tolerant</label><br>
                 
                     
@@ -490,10 +517,10 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc3">Light Requirements</label>
 
-                    <div class="checkbox">
+                    <div class="form-group">
                         <label><input type="checkbox" name="hortc3" value="Spring">Full</label>
                         <label><input type="checkbox" name="hortc3" value="Winter">Part</label>
                     
@@ -504,7 +531,7 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc4">Water Requirement</label><br>
                 
                     
@@ -517,7 +544,7 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc5">Toxic</label><br>
                 
                     
@@ -530,7 +557,7 @@
                     
                     
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="hortc6">Invasive</label><br>
                 
                     
@@ -543,7 +570,7 @@
                     
                     
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="hortc7">Suseptibility to diseases</label><br>
                 
                     
@@ -557,7 +584,7 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc8">Fruit / leaves Flower Litter</label><br>
                 
                     
@@ -571,7 +598,7 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc9">Surface Rooting</label><br>
                 
                     
@@ -585,7 +612,7 @@
                     
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="hortc10">Life Span</label><br>
                 
                     

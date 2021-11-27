@@ -29,6 +29,11 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    origin:{
+        type: String,
+        required: true
+    },
+
     Description: {
         type: String,
         required: true

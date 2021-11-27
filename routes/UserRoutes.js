@@ -2,6 +2,7 @@ const {Router} = require('express');
 const router = Router();
 const UserController = require('../controllers/UserController');
 const plant = require('../models/plant');
+const Contact = require('../models/ContactModel');
 const path = require('path');
 let reqPath = path.join(__dirname, '../');
 
@@ -47,9 +48,23 @@ router.get('/Category', function(req, res) {
 
 });
 
+router.get('/Glossary', function(req, res) {
+    res.render('Glossary', { layout: './Layouts/SearchLayout' });
+});
+
 router.get('/SearchName', function(req, res) {
     res.render('SearchName', { layout: './Layouts/SearchLayout' });
 });
+
+router.get('/Contact', function(req, res) {
+    res.render('Contact', { layout: './Layouts/SearchLayout' });
+});
+
+router.get('/PlantIdentity', function(req, res) {
+    res.render('PlantIdentity', { layout: './Layouts/SearchLayout' });
+});
+
+router.post('/Contacted', UserController.saveContact);
 
 router.post("/SearchByName", UserController.searchPlantByName);
 
@@ -57,10 +72,15 @@ router.get("/Gallery", UserController.displayAllPlants);
 
 router.get("/SearchCategory/:category",UserController.searchPlantByCategory);
 
+router.post("/SearchPlantIdentity",UserController.searchPlantIdentity);
+
+
 router.get('/SearchLetter/:Letter',UserController.searchPlantByLetter);
 
 router.get("/Gallery/:Type", UserController.displayPlantsByType);
 
 router.get("/PlantProfile/:CommonName" , UserController.PlantProfile);
+
+router.get("/pdfdownload/:id" , UserController.pdfdownload);
 
 module.exports = router;

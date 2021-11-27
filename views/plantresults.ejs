@@ -6,10 +6,9 @@
     
     <!--href passing common name -->
     
-    <div class = "AdminSearchRes magniflier">
+    <div class = "AdminSearchRes">
         
-    
-     
+        <% if (plant[i].image !=null ) { %>
           <% for (var z = 0; z < plant[i].image.length; z++) { %>
             <!--only show the first image-->
             <% if (z == 0) { %>
@@ -18,15 +17,55 @@
                 <% } %>
             
             <% } %>
+            <div>
             <a href="/PlantProfile/<%= plant[i].CommonName %>">
             <h4 ><%= plant[i].CommonName %> <br><span><%= plant[i].ScientificName %></span></h4>
-            </a>
-    
+            </a></div>
+            <div class="SearchBar">
+            
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].landscape[2].content %>"  src="/images/<%= plant[i].landscape[2].content[0] %>.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].landscape[8].content %>"  src="/images/height.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].landscape[9].content %>"  src="/images/spread.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].landscape[5].content %>"  src="/images/<%= plant[i].landscape[5].content[0] %>.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].landscape[4].content %>"  src="/images/Growth.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].botanical[4].content %>"  src="/images/<%= plant[i].botanical[4].content[0] %>.png" alt="">
+              <img data-toggle="tooltip" data-placement="bottom" title="<%= plant[i].horticulture[3].content %>"  src="/images/<%= plant[i].horticulture[3].content %>.png" alt="">
+            
+            </div>
     </div>
    
     
 
     <hr>
     <% } %>
+    <% } %>
     
-    
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip({container: '.SearchBarElem'});
+        });
+    </script>
+
+<script type="text/javascript" src="https://assets.website-files.com/5e2755779d8b8ea1d6373797/5ea88e92dce9b4b66f165490_zoom.txt"></script>
+<script>
+  jQuery(function(){
+ 
+   if(!$.fn.imagezoomsl){
+ 
+      $('.msg').show();
+      return;
+    }
+    else $('.msg').hide();
+ 
+    // plugin initialization
+    $('.image').imagezoomsl({
+ 
+      innerzoommagnifier: true,
+      classmagnifier: "round-loope",
+      magnifiersize: [150, 150],
+      // disables the scrolling of the document with the mouse wheel when the cursor is over the image
+      disablewheel: false
+    });
+  });
+</script>
+

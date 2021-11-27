@@ -3,6 +3,7 @@
     <ul>
         <li>Select Plant Type: </li>
         <li><a href="/Gallery">All Types</a></li>
+        <li><a href="/Gallery/cactus">Cactus</a></li>
         <li><a href="/Gallery/groundcover">Ground Covers</a></li>
         <li><a href="/Gallery/lawn">Lawn</a></li>
         <li><a href="/Gallery/palm">Palm</a></li>
@@ -12,9 +13,9 @@
         
     </ul>
 </div>
-<div class="Galgrid">
+<div class="cardsgaler">
     <% for (var i = 0; i < plant.length; i++) { %>
-    <div class= "Gallery">
+    <div class= "cardsgaler__item">
     
     
         <!-- usinga grid display all the plants images and names under the image-->
@@ -25,15 +26,18 @@
                     
                     
                     <!--only show the first image-->
+                    <!-- if image lnegth is not null-->
+                    <% if (plant[i].image !=null ) { %>
                     <% for (var z = 0; z < plant[i].image.length; z++) { %>
                         <% if (z == 0) { %>
                             <img class="imggal" src="/uploads/<%= plant[i].image[z]%>" class="image">
         
                             <% } %>
+                            <% } %>
                     
                         <% } %>
                         <a href="/PlantProfile/<%= plant[i].CommonName %>">
-                            <h4><%= plant[i].CommonName %> <br></h4>
+                            <h4 class="h4gal"><%= plant[i].CommonName %> <br></h4>
                         </a>
                 </div>
                 

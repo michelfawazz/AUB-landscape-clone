@@ -9,7 +9,7 @@
 
 
 <div class="imageviews">
- 
+  
       <% for (var z = 0; z < plant.image.length; z++) { %>
         <img src="/uploads/<%= plant.image[z]%>" alt="<%= plant.CommonName %>" class="img-thumbnail">
 
@@ -104,6 +104,10 @@
 
 <!-- add a delete plant button when clicked does the delete route-->
 <button type="button" class="btn btn-danger" onclick="window.location.href='/admin/deletePlant/<%= plant._id %>'">Delete Plant</button>
+
+
+<button type="button" class="btn btn-danger" onclick="window.location.href='/admin/update/<%= plant._id %>'">Modify Plant</button>
+
 
 
 

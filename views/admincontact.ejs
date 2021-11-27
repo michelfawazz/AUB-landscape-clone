@@ -1,0 +1,35 @@
+<!-- display all data in contactmodel-->
+
+
+<% for (var i = 0; i < contact.length; i++) { %>
+
+    <!-- display all  the elements in a table with 2 buttons at the end-->
+    
+        
+    <div class= "contactrow">
+        <h5 class="card-title">
+            <%= contact[i].name %>
+        </h5>
+        <p  class="card-text">
+            <%= contact[i].email %>
+        </p>
+        <p class="card-text">
+            <%= contact[i].message %>
+        </p>
+        
+        <form action="/admin/reply/<%=contact[i].email %>" method="post">
+            <input type ="textarea" class="form-control" name="reply" rows="3" style="max-width: 100%;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <a href="/admin/deleteContact/<%=contact[i]._id %>" class="btn btn-primary">
+            Delete
+        </a>
+        <hr>
+
+    </div>
+
+   
+    
+
+
+<% }%>
