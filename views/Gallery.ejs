@@ -13,42 +13,34 @@
         
     </ul>
 </div>
-<div class="cardsgaler">
+<!-- bootstrap Responsive image grid for loop-->
+<div class="container">
+    <div class="row">
+
     <% for (var i = 0; i < plant.length; i++) { %>
-    <div class= "cardsgaler__item">
-    
-    
-        <!-- usinga grid display all the plants images and names under the image-->
-        <div class="row">
-            <div class="col-md-2">
-                
-                <div class = "AdminSearchRe">
-                    
-                    
-                    <!--only show the first image-->
-                    <!-- if image lnegth is not null-->
-                    <% if (plant[i].image !=null ) { %>
+        <div class="col-md-4 galcont">
+            
+                <% if (plant[i].image !=null ) { %>
                     <% for (var z = 0; z < plant[i].image.length; z++) { %>
                         <% if (z == 0) { %>
-                            <img class="imggal" src="/uploads/<%= plant[i].image[z]%>" class="image">
-        
-                            <% } %>
-                            <% } %>
-                    
-                        <% } %>
-                        <a href="/PlantProfile/<%= plant[i].CommonName %>">
-                            <h4 class="h4gal"><%= plant[i].CommonName %> <br></h4>
-                        </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <% } %>
+                <a href="/PlantProfile/<%= plant[i].CommonName %>">
+                    <img class="imggal" src="/uploads/<%= plant[i].image[z]%>">
+                </a> <% } %>
+                <% } %>
+                <% } %>
 
+                <div class="caption">
+                    <h4 class='h4gal'><%= plant[i].CommonName %></h4>
+                </div>
+            
+        </div>
+
+    <% } %>
+    </div>
 </div>
 
-
+   
+   
 
 
 

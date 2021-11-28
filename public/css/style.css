@@ -21,6 +21,7 @@ main{
     width: 100%;
     height: auto;
     
+    
 }
 
 
@@ -54,8 +55,7 @@ img {
 header {
     width: auto;
     height: 170px;
-    
-
+   
     background: beige;
 }
 
@@ -86,6 +86,7 @@ header .logo .fontsmall {
     display: block;
     color: #000;
     font-size: 13px;
+    
 }
 
 header .logo .fontnormal {
@@ -101,6 +102,7 @@ header .logo .fontbig {
     font-size: 20px;
     font-weight: bold;
 }
+
 
 nav {
     width: 400px;
@@ -248,7 +250,7 @@ nav {
     width: 600px;
     height: 40px;
     float: right;
-    margin-right: 88px;
+    
     clear: both;
     background: url(../images/hr.png) no-repeat right bottom;
     margin-bottom: 50px;
@@ -266,7 +268,7 @@ nav {
 }
 
 .navfoot a{
-    color: white;
+    color: black;
     
 
 }

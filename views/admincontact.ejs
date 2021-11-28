@@ -7,21 +7,29 @@
     
         
     <div class= "contactrow">
+        <label class="labelform">Name:</label>
         <h5 class="card-title">
             <%= contact[i].name %>
         </h5>
+        <label class="labelform">E-mail</label>
         <p  class="card-text">
             <%= contact[i].email %>
         </p>
+        <label class="labelform">Message:</label>
         <p class="card-text">
+
             <%= contact[i].message %>
         </p>
         
         <form action="/admin/reply/<%=contact[i].email %>" method="post">
             <input type ="textarea" class="form-control" name="reply" rows="3" style="max-width: 100%;">
+            <br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <a href="/admin/deleteContact/<%=contact[i]._id %>" class="btn btn-primary">
+
+        <br>
+        
+        <a href="/admin/deleteContact/<%=contact[i]._id %>" class="btn btn-danger">
             Delete
         </a>
         <hr>

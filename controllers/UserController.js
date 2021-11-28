@@ -14,7 +14,7 @@ module.exports.PlantProfile = (req, res) => {
             console.log(err);
         } else {
             res.render('plantprofile', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant
             });
         }
@@ -31,7 +31,7 @@ module.exports.searchPlantByCategory = (req, res) => {
         } else {
             console.log(plant);
             res.render('plantresults', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant,
             });
         }
@@ -50,7 +50,7 @@ module.exports.searchPlantByName = (req, res) => {
             console.log(plant);
             res.render('plantresults', {
                 plant: plant,
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
             });
         }
     });
@@ -68,7 +68,7 @@ module.exports.searchPlantByLetter = (req, res) => {
         } else {
             console.log(plant);
             res.render('plantresults', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant,
             });
         }
@@ -85,7 +85,7 @@ module.exports.displayAllPlants = (req, res) => {
         } else {
             console.log(plant);
             res.render('Gallery', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant,
             });
         }
@@ -101,7 +101,7 @@ module.exports.displayPlantsByType = (req, res) => {
         } else {
             console.log(plant);
             res.render('Gallery', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant,
             });
         }
@@ -188,7 +188,7 @@ module.exports.searchPlantIdentity = (req, res) => {
         } else {
             console.log(plant);
             res.render('plantresults', {
-                layout: './Layouts/SearchLayout',
+                layout: './Layouts/UserLayout',
                 plant: plant,
             });
         }

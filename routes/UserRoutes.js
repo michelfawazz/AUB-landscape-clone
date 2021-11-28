@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
               console.log(result);
               res.render('index', {
                
-                layout: false,
+                layout: './Layouts/UserLayout',
                 plant: result
               });
             }
@@ -35,33 +35,33 @@ router.get('/', function(req, res) {
 
 
 router.get('/about', function(req, res) {
-    res.render('about', { layout: './Layouts/SearchLayout' });
+    res.render('about', { layout: './Layouts/UserLayout' });
 
 });
 
 router.get('/Links', function(req, res) {
-    res.render('links', { layout: './Layouts/SearchLayout' });
+    res.render('links', { layout: './Layouts/UserLayout' });
 
 });
 router.get('/Category', function(req, res) {
-    res.render('SearchCategory', { layout: './Layouts/SearchLayout' });
+    res.render('SearchCategory', { layout: './Layouts/UserLayout' });
 
 });
 
 router.get('/Glossary', function(req, res) {
-    res.render('Glossary', { layout: './Layouts/SearchLayout' });
+    res.render('Glossary', { layout: './Layouts/UserLayout' });
 });
 
 router.get('/SearchName', function(req, res) {
-    res.render('SearchName', { layout: './Layouts/SearchLayout' });
+    res.render('SearchName', { layout: './Layouts/UserLayout' });
 });
 
 router.get('/Contact', function(req, res) {
-    res.render('Contact', { layout: './Layouts/SearchLayout' });
+    res.render('Contact', { layout: './Layouts/UserLayout' });
 });
 
 router.get('/PlantIdentity', function(req, res) {
-    res.render('PlantIdentity', { layout: './Layouts/SearchLayout' });
+    res.render('PlantIdentity', { layout: './Layouts/UserLayout' });
 });
 
 router.post('/Contacted', UserController.saveContact);
