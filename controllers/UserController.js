@@ -127,77 +127,63 @@ module.exports.saveContact = (req, res) => {
 }
 
 
-module.exports.searchPlantIdentity = (req, res) => {
-
+module.exports.searchPlantIdentity = (req, res) => {    
+    let query = [];
+    if(req.body.landc3)
+        query.push({'landscape.name': 'Type', 'landscape.content': req.body.landc3, 'landscape.group': 'general'});
+    if(req.body.landc6)
+        query.push({'landscape.name': 'Tree Shape', 'landscape.content': req.body.landc6, 'landscape.group': 'Size/Shape'});
+    if(req.body.landc9)
+        query.push({'landscape.name': 'Plant Height', 'landscape.content': req.body.landc9, 'landscape.group': 'Size/Shape'});
+    if(req.body.landc10)
+        query.push({'landscape.name': 'Plant Spread', 'landscape.content': req.body.landc10 , 'landscape.group': 'Size/Shape'});
     
-    let type = req.body.landc3;
-    
+    if(req.body.botc1)
+        query.push({'botanical.name': 'Leaf Arrangement', 'botanical.content': req.body.botc1, 'botanical.group':'Foliage'});
+    if(req.body.botc2)
+        query.push({'botanical.name': 'Persistence', 'botanical.content': req.body.botc2 , 'botanical.group': 'Foliage'});
+    if(req.body.botc3)
+        query.push({'botanical.name': 'Color Growing Season', 'botanical.content': req.body.botc3 , 'botanical.group': 'Foliage'});
+    if(req.body.botc4)
+        query.push({'botanical.name': 'Color Changing season', 'botanical.content': req.body.botc4 , 'botanical.group': 'Foliage'});
 
-    let shape = req.body.landc6;
-    let Pheight = req.body.landc9;
-    let Pspread = req.body.landc10;
+    if(req.body.botc5)
+        query.push({'botanical.name': 'Flower Color', 'botanical.content': req.body.botc5 , 'botanical.group': 'Flower'});
+    if(req.body.botc6)
+        query.push({'botanical.name': 'Flower Scent', 'botanical.content': req.body.botc6 , 'botanical.group': 'Flower'});
+    if(req.body.botc7)
+        query.push({'botanical.name': 'Flower Season', 'botanical.content': req.body.botc7 , 'botanical.group': 'Flower'});
+    if(req.body.botc8)
+        query.push({'botanical.name': 'Flower Showiness', 'botanical.content': req.body.botc8 , 'botanical.group': 'Flower'});
 
-    let LeafArrang = req.body.botc1;
-    let LeafPers = req.body.botc2;
-    let ColorGrowing = req.body.botc3;
-    let ColorChanging = req.body.botc4;
+    if(req.body.botc9)
+        query.push({'botanical.name': 'Esthetic value', 'botanical.content': req.body.botc9 , 'botanical.group': 'Trunk'});
+    if(req.body.botc10)
+        query.push({'botanical.name': 'Number of Trunks', 'botanical.content': req.body.botc10 , 'botanical.group': 'Trunk'});
 
+    if(req.body.botc11)
+        query.push({'botanical.name': 'Fruit Showiness', 'botanical.content': req.body.botc11 , 'botanical.group': 'Fruit'});
+    if(req.body.botc12)
+        query.push({'botanical.name': 'Fruit Color', 'botanical.content': req.body.botc12 , 'botanical.group': 'Fruit'});
+    if(req.body.botc13)
+        query.push({'botanical.name': 'Fruit Size', 'botanical.content': req.body.botc13 , 'botanical.group': 'Fruit'});
+    if(req.body.botc14)
+        query.push({'botanical.name': 'Fruit Season', 'botanical.content': req.body.botc14 , 'botanical.group': 'Fruit'})
+    if(req.body.botc15)
+        query.push({'botanical.name': 'Fruit Type', 'botanical.content': req.body.botc15, 'botanical.group':'Fruit'})
 
-    let FlowerColor = req.body.botc5;
-    let FlowerScent = req.body.botc6;
-    let FlowerSeason = req.body.botc7;
-    let FlowerShowiness = req.body.botc8;
-
-    let trunkEsthetic = req.body.botc9;
-    let trunkNumber = req.body.botc10;
-
-    let FruitShowiness = req.body.botc11;
-    let FruitColor = req.body.botc12;
-    let FruitSize = req.body.botc13;
-    let FruitSeason = req.body.botc14;
-    let FruitType = req.body.botc15;
-
-    console.log(type);
     //find in plant database plants where the variables that are not null match them in the database
-    plant.find({
-        $and: [
-            {
-                $or: [
-                        {'landscape.name': 'Type', 'landscape.content': type, group: 'general'},
-    {'landscape.name': 'Tree Shape', 'landscape.content': shape, group: 'Size/Shape'}, 
-    {'landscape.name': 'Plant Height', 'landscape.content': Pheight, group: 'Size/Shape'},
-     {'landscape.name': 'Plant Spread', 'landscape.content': Pspread , group: 'Size/Shape'},
-     {'botanical.name': 'Leaf Arrangement', 'botanical.content': LeafArrang, group:"Foliage"},
-      {'botanical.name': 'Persistence', 'botanical.content': LeafPers , group: "Foliage"},
-       {'botanical.name': 'Color Growing Season', 'botanical.content': ColorGrowing , group: "Foliage"},
-        {'botanical.name': 'Color Changing season', 'botanical.content': ColorChanging , group: "Foliage"},
-        {'botanical.name': 'Flower Color', 'botanical.content': FlowerColor , group: "Flower"},
-        {'botanical.name': 'Flower Scent', 'botanical.content': FlowerScent , group: "Flower"},
-        {'botanical.name': 'Flower Season', 'botanical.content': FlowerSeason , group: "Flower"}, 
-        {'botanical.name': 'Flower Showiness', 'botanical.content': FlowerShowiness , group: "Flower"}, 
-        {'botanical.name': 'Esthetic value', 'botanical.content': trunkEsthetic , group: "Trunk"}, 
-        {'botanical.name': 'Number of Trunks', 'botanical.content': trunkNumber , group: "Trunk"},
-         {'botanical.name': 'Fruit Showiness', 'botanical.content': FruitShowiness , group: "Fruit"},
-          {'botanical.name': 'Fruit Color', 'botanical.content': FruitColor , group: "Fruit"},
-           {'botanical.name': 'Fruit Size', 'botanical.content': FruitSize , group: "Fruit"},
-            {'botanical.name': 'Fruit Season', 'botanical.content': FruitSeason , group: "Fruit"},
-             {'botanical.name': 'Fruit Type', 'botanical.content': FruitType, group:"Fruit"} , 
-            ]}]}, (err, plant) => {
+    plant.find({ $and: query }, (err, plant) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(plant);
-            res.render('plantresults', {
-                layout: './Layouts/UserLayout',
-                plant: plant,
-            });
+            res.render('plantresults', { plant: plant });
         }
-
     }
     );
     
 }
-                
+              
 
 module.exports.pdfdownload = (req, res) => {
     let id = req.params.id;
