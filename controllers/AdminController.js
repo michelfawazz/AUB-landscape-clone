@@ -71,9 +71,22 @@ module.exports.addPlant = async (req, res) => {
     });
 }
 
+
+
+
 module.exports.updatePlant = (req, res) => {
 
-    console.log('need to update the plant by ', req.params.id);
+    let old_images = [];
+    plant.findById(req.params.id, (err, foundPlant)=>{
+        if(foundPlant && foundPlant.image && foundPlant.image.length ) {
+            old_images = foundPlant.image;
+
+        }    
+        if(req.files)
+            req.files.map(item=>{
+                old_images.push(item.filename);
+            });
+        
     let newPlant = new plant({
         _id: req.params.id,
         category: req.body.category,
@@ -81,11 +94,8 @@ module.exports.updatePlant = (req, res) => {
         ScientificName: req.body.ScientificName.toLowerCase(),
         origin: req.body.origin,
         Description: req.body.Description,
-       
-
-
-        image: req.files.map(file => file.filename),
-
+        // get all file names from the form
+        image: old_images,
         landscape: [
             {name: "French name", content: req.body.landc1, group: "general"},
             {name: "Pronounciation", content: req.body.landc2, group: "general"},
@@ -129,14 +139,15 @@ module.exports.updatePlant = (req, res) => {
             {name: "Life Span", content: req.body.hortc10, group: "Management"},
         ],        
     });
-
-    plant.findByIdAndUpdate(req.params.id, newPlant, {multi: false} , (err, updatedPlant)=>{
-        if (err) {
-            console.log(err);
-        } else {
-            res.redirect('/admin');
-        }
+        plant.findByIdAndUpdate(req.params.id, newPlant, {multi: false} , (err, updatedPlant)=>{
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/admin');
+            }
+        });
     });
+
 }
 
     

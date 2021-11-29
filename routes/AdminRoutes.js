@@ -40,6 +40,9 @@ router.get('/addplant', async (req, res) => {
 
 });
 
+
+
+
 // get:id: get a particular post
 router.get('/update/:id', async (req, res)=>{
     const plant = await PlantSchema.findById(req.params.id).exec();

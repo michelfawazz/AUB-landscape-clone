@@ -222,5 +222,3 @@ module.exports.pdfdownload = (req, res) => {
 
 }
 
-
-   

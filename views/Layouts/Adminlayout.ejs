@@ -7,7 +7,7 @@
     <title>CMPS278 project</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -17,78 +17,150 @@
 
 
 <body>
-    <!-- header with logo.png from the public image folder on the right and a title under the logo -->
+    <!-- Using Bootstrap create a header with a logo that wraps around the logo  -->
     <header>
-        <a href="/" class="logo">
-            <img src="/images/logo.png">
-            <span class="fontsmall">Landscape Design &amp; Ecosystem Management</span>
-            <span class="fontnormal">Faculty of Agriculture &amp; Food Sciences</span>
-            <span class="fontbig">AUB Landscape Plant Database</span>
-        </a>
-
-
-    </header>
-    
-    <main>
-        
-        <nav class= "flex"> 
-            <div class="navh">
-
-                <ul>
-                    <li><a href="/admin">Search Plants</a></li>
-                    <li><a href="/admin/addplant">Add Plants</a></li>
-                    <li><a href="/admin/admincontact">Reply to Contacts</a></li>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/" class="logo">
+                       
+                        <img src="/images/logo.png" alt="logo" class="img-responsive">
+                    </a>
+                    <!-- Place a Small heading under the img-->
+                    <h6 class="fontsmall">Landscape Design &amp; Ecosystem Management</h6>
+                    <h6 class="fontnormal">Faculty of Agriculture &amp; Food Sciences</h6>
                     
-                    
-                </ul>
-            </div>
-
-        </nav>
-
-        <div class="flex2 maincont">
-            
-
-            <div div class="box">
+                </div>
                 
-                <%- body %>
+              
+                
 
 
             </div>
-   
-            
 
+                <!--  bootstrap nav bar under the logo-->
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">AUB Landscape Plant Database</a>
+                        </div>
 
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li><a href="/admin">Search For plants</a></li>
+                                <li><a href="/admin/addplant">Add Plants</a></li>
+                                <li><a href="/admin/admincontact">Reply to Contacts</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                            
+                            
+                
         </div>
-
-        
-
-        
-
-
+    </header>
+                
+                   <!-- Main content area-->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                      <%- body %>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer >
-        <!-- nav bar with an image under it-->
-        <nav>
-            <div class="navfoot">
-                <ul>
-                    
-                    <li><a href="/">Copyright</a></li>
-                    <li><a href="/">Citing the Plant Database</a></li>
-                    <li><a href="/">Acknowledgements</a></li>
-                    <li><a href="/contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
-            
         
-    </footer>
+
+        
+
+
+  
+
+   <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>AUB Landscape Plant Database
+            </h6>
+            <p>
+               This is our project for the CMPS278 course. It is a clone of the AUB landscape website.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-4 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful Links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">&#169 Copyright</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Citing the Plant Database</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Acknowledgements</a>
+            </p>
+            <p>
+              <a href="/Contact" class="text-reset">Contact Us</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+         
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Created By
+            </h6>
+            <p> Michel Fawaz</p>
+            <p>
+             
+              Carlos Eid
+            </p>
+            <p> Lana Tawil</p>
+            
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+ 
+  </footer>
+  <!-- Footer -->
+   
     
 
+
+   
+
+
 </body>
-
-
-
     
 
 </html>

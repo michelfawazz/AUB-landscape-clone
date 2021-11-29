@@ -47,19 +47,21 @@
 
 
     <div class="imageviews">
-        
+        <%var varimg=[]; %>
         <% for (var z = 0; z < plant.image.length; z++) { %>
-          <img src="/uploads/<%= plant.image[z]%>" class="img-thumbnail">
-            <!--append to image value-->
-            
-  
+         <img src="/uploads/<%= plant.image[z]%>"  class="img-thumbnail">
+         <!-- add image name to varimg array-->
+            <% varimg.push(plant.image[z])%>
+
+          
+        
           <% } %>
         
   </div>
     
 
     <div class="form-group">
-        <label for="image" class="labelform">Upload Images of the Plant</label>
+        <label for="image" class="labelform">Change Plant Images</label>
         <input class="form-control-file"type="file" name="image" value="<%=plant.image%>" id="image" multiple>
     </div>
     <br>
