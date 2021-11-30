@@ -177,7 +177,106 @@ module.exports.searchPlantIdentity = (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.render('plantresults', { plant: plant });
+            res.render('plantresults', { layout: './Layouts/UserLayout',
+                plant: plant });
+        }
+    }
+    );
+    
+}
+
+
+module.exports.searchPlantCriteria = (req, res) => {    
+    let query2 = [];
+
+
+    if(req.body.landc3)
+        query2.push({'landscape.name': 'Type', 'landscape.content': req.body.landc3, 'landscape.group': 'general'});
+
+    if(req.body.landc4)
+        query2.push({'landscape.name': 'Uses', 'landscape.content': req.body.landc4, 'landscape.group': 'general'});
+    
+    if(req.body.landc5)
+        query2.push({'landscape.name': 'Growth Rate', 'landscape.content': req.body.landc5, 'landscape.group': 'Size/Shape'});
+   
+    if(req.body.landc6)
+        query2.push({'landscape.name': 'Tree Shape', 'landscape.content': req.body.landc6, 'landscape.group': 'Size/Shape'});
+    if(req.body.landc9)
+        query2.push({'landscape.name': 'Plant Height', 'landscape.content': req.body.landc9, 'landscape.group': 'Size/Shape'});
+    if(req.body.landc10)
+        query2.push({'landscape.name': 'Plant Spread', 'landscape.content': req.body.landc10 , 'landscape.group': 'Size/Shape'});
+    
+    if(req.body.botc1)
+        query2.push({'botanical.name': 'Leaf Arrangement', 'botanical.content': req.body.botc1, 'botanical.group':'Foliage'});
+    if(req.body.botc2)
+        query2.push({'botanical.name': 'Persistence', 'botanical.content': req.body.botc2 , 'botanical.group': 'Foliage'});
+    if(req.body.botc3)
+        query2.push({'botanical.name': 'Color Growing Season', 'botanical.content': req.body.botc3 , 'botanical.group': 'Foliage'});
+    if(req.body.botc4)
+        query2.push({'botanical.name': 'Color Changing season', 'botanical.content': req.body.botc4 , 'botanical.group': 'Foliage'});
+
+    if(req.body.botc5)
+        query2.push({'botanical.name': 'Flower Color', 'botanical.content': req.body.botc5 , 'botanical.group': 'Flower'});
+    if(req.body.botc6)
+        query2.push({'botanical.name': 'Flower Scent', 'botanical.content': req.body.botc6 , 'botanical.group': 'Flower'});
+    if(req.body.botc7)
+        query2.push({'botanical.name': 'Flower Season', 'botanical.content': req.body.botc7 , 'botanical.group': 'Flower'});
+    if(req.body.botc8)
+        query2.push({'botanical.name': 'Flower Showiness', 'botanical.content': req.body.botc8 , 'botanical.group': 'Flower'});
+
+    if(req.body.botc9)
+        query2.push({'botanical.name': 'Esthetic value', 'botanical.content': req.body.botc9 , 'botanical.group': 'Trunk'});
+    if(req.body.botc10)
+        query2.push({'botanical.name': 'Number of Trunks', 'botanical.content': req.body.botc10 , 'botanical.group': 'Trunk'});
+
+    if(req.body.botc11)
+        query2.push({'botanical.name': 'Fruit Showiness', 'botanical.content': req.body.botc11 , 'botanical.group': 'Fruit'});
+    if(req.body.botc12)
+        query2.push({'botanical.name': 'Fruit Color', 'botanical.content': req.body.botc12 , 'botanical.group': 'Fruit'});
+    if(req.body.botc13)
+        query2.push({'botanical.name': 'Fruit Size', 'botanical.content': req.body.botc13 , 'botanical.group': 'Fruit'});
+    if(req.body.botc14)
+        query2.push({'botanical.name': 'Fruit Season', 'botanical.content': req.body.botc14 , 'botanical.group': 'Fruit'})
+    if(req.body.botc15)
+        query2.push({'botanical.name': 'Fruit Type', 'botanical.content': req.body.botc15, 'botanical.group':'Fruit'})
+
+    if(req.body.hortc1)
+        query2.push({'horticulture.name': "Frost Tolerant", 'horticulture.content': req.body.hortc1, group: "Tolerance"});
+    
+    if(req.body.hortc2)
+        query2.push({'horticulture.name': "Heat Tolerant", 'horticulture.content': req.body.hortc2, group: "Tolerance"});
+
+    if(req.body.hortc3)
+        query2.push({'horticulture.name': "Light", 'horticulture.content': req.body.hortc3, group: "Requirements"});
+    
+    if(req.body.hortc4)
+        query2.push({'horticulture.name': "Water", 'horticulture.content': req.body.hortc4, group: "Requirements"});
+
+
+
+    if(req.body.hortc6)
+        query2.push({'horticulture.name': "Invasive", 'horticulture.content': req.body.hortc6, group: "Management"});
+
+    if(req.body.hortc7)
+        query2.push({'horticulture.name': "Suceptibility to diseases", 'horticulture.content': req.body.hortc7, group: "Management"});
+
+
+    if(req.body.hortc8)
+        query2.push({'horticulture.name': "Litter", 'horticulture.content': req.body.hortc8, group: "Management"});
+
+    if(req.body.hortc9)
+        query2.push({'horticulture.name': "Surface rooting", 'horticulture.content': req.body.hortc9, group: "Management"});
+
+    if(req.body.hortc10)
+        query2.push({'horticulture.name': "Life Span", 'horticulture.content': req.body.hortc10, group: "Management"});
+    //find in plant database plants where the variables that are not null match them in the database
+    plant.find({ $and: query2 }, (err, plant) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('plantresults', { 
+                layout: './Layouts/UserLayout',
+                plant: plant });
         }
     }
     );

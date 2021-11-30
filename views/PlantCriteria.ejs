@@ -1,21 +1,27 @@
 
-<h1>Identify a Plant</h1>
+<h1>Search Plant By Criteria</h1>
 <div class="addplant">
 
 
-    <form id="form" action="/SearchPlantIdentity" method="post" >
+    <form id="form" action="/SearchPlantCriteria" method="post" >
 
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Size/Shape</a></li>
+            
+            <li class="active"><a data-toggle="tab" href="#basic">Basic Info</a></li>
+            <li><a data-toggle="tab" href="#uses">Uses</a></li>
+
+            <li><a data-toggle="tab" href="#home">Size/Shape</a></li>
             <li><a data-toggle="tab" href="#menu1">Leaf</a></li>
             <li><a data-toggle="tab" href="#menu2">Flower</a></li>
             <li><a data-toggle="tab" href="#menu3">Trunk</a></li>
             <li><a data-toggle="tab" href="#menu4">Fruit</a></li>
+            <li><a data-toggle="tab" href="#menu5">Management</a></li>
         </ul>
     
         <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
-                <!-- plant type 5 checkboxes with options -->
+            
+
+            <div id="basic" class="tab-pane fade in active">
                 <label class="labelform">Plant Type</label>
                 <div class="form-group">
                     <label><input type="checkbox" name="landc3" value="cactus">Cactus/Succulent</label>
@@ -26,6 +32,133 @@
                     <label><input type="checkbox" name="landc3" value="tree">Tree</label>
                     <label><input type="checkbox" name="landc3" value="vine">Vine</label>
                 </div>
+
+                <div class="form-group">
+                    <label for="hortc3">Light Requirements</label>
+
+                    <div class="form-group">
+                        <label><input type="checkbox" name="hortc3" value="Full">Full</label>
+                        <label><input type="checkbox" name="hortc3" value="Part">Part</label>
+                    
+                        
+                        
+                    </div>
+        
+                    
+                </div>
+
+
+                <div class="form-group">
+                    <label for="hortc4" class="labelform">Water Requirement</label><br>
+                
+                    
+                    <input type="radio" name="hortc4" value="Low">
+                    <label >Low</label>
+                   
+                    
+                    <input type="radio"  name="hortc4" value="Moderate">
+                    <label >Moderate</label>
+                    
+                </div>
+
+
+                <div class="form-group" >
+                    <label for="hortc1" class="labelform">Frost Tolerant</label><br>
+                
+                    
+                    <input type="radio" name="hortc1" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc1" value="No">
+                    <label >No</label>
+                    
+                </div>
+
+
+
+
+                
+                
+                <div class="form-group">
+                    <label for="hortc2" class="labelform">Heat Tolerant</label><br>
+                
+                    
+                    <input type="radio" name="hortc2" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc2" value="No">
+                    <label >No</label>
+                    
+                </div>
+
+
+
+            </div>
+
+            <div id="uses" class="tab-pane fade">
+                <div class="form-group  ">
+                    <label for="landc4" class="labelform">Uses: </label>
+                    <!-- Plant uses drop down select with 10 options -->
+                   
+                    <div class="form-group">
+                        <h5>Outdoor</h5>
+                        <label><input  class="form-check-input" type="checkbox" name="landc4" value='Screen'>Screen</label>
+                        <label><input type="checkbox" name="landc4" value='Hedge'>Hedge</label>
+                        <label><input type="checkbox" name="landc4" value='Mass Planting'>Mass Planting</label>
+                        <label><input type="checkbox" name="landc4" value='Specimen'>Specimen</label>
+                        <label><input type="checkbox" name="landc4" value='Border Plant'>Border Plant</label>
+                        <label><input type="checkbox" name="landc4" value='Street'>Street</label>
+                        <br><br>
+
+                        <h5>Specialized</h5>
+                        <label><input type="checkbox" name="landc4" value='Topiary'>Topiary</label>
+                        <label><input type="checkbox" name="landc4" value='Indoor'>Indoor</label>
+                        <label><input type="checkbox" name="landc4" value='Bonsai'>Bonsai</label>
+                        <label><input type="checkbox" name="landc4" value='Container'>Container</label>
+                        <label><input type="checkbox" name="landc4" value='Espalier'>Espalier</label>
+                        <label><input type="checkbox" name="landc4" value='Sports Field'>Sports Field</label>
+                        <br><br>
+
+                        <h5>Native Environment</h5>
+                        <label><input type="checkbox" name="landc4"value="Shade" >Shade</label>
+                        <label><input type="checkbox" name="landc4" value='Windbreak'>Windbreak</label>
+                        <label><input type="checkbox" name="landc4" value='Erosion Control'>Erosion Control</label>
+                        <label><input type="checkbox" name="landc4" value='Pollution Tolerant/ Urban'>Pollution Tolerant/ Urban</label>
+                        <label><input type="checkbox" name="landc4" value='Reclamation'>Reclamation</label>
+                        <label><input type="checkbox" name="landc4" value='Wildlife'>Wildlife</label>
+                        <label><input type="checkbox" name="landc4" value='Native to Lebanon'>Native to Lebanon</label>
+                        <br><br>
+
+                        <h5>Human Use</h5>
+                        <label><input type="checkbox" name="landc4" value='Edible'>Edible</label>
+                        <label><input type="checkbox" name="landc4" value='Medicinal'>Medicinal</label>
+                        <label><input type="checkbox" name="landc4" value='Cut Flower/ Arrangement'>Cut Flower/ Arrangement</label>
+                        <br><br>
+
+                        <h5>Building</h5>
+                        <label><input type="checkbox" name="landc4" value='Intensive Green Roof'>Intensive Green Roof</label>
+                        <label><input type="checkbox" name="landc4" value='Extensive Green Roof'>Extensive Green Roof</label>
+                        <label><input type="checkbox" name="landc4" value='Facade'>Facade</label>
+
+                     </div>
+
+                    
+
+        
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div id="home" class="tab-pane fade">
+                <!-- plant type 5 checkboxes with options -->
+                
                 <label for="landc6" class="labelform">Tree Shape</label>
 
                 <div class="form-group">
@@ -95,6 +228,19 @@
 
             
             </div>
+
+            <div class="form-group">
+                <label for="landc5" class="labelform">Growth Rate</label><br>
+                <input type="radio" name="landc5" value="Slow">
+                <label >Slow</label><br>
+                <input type="radio"  name="landc5" value="Moderate">
+                <label >Moderate</label><br>  
+                <input type="radio" name="landc5" value="Fast">
+                <label >Fast</label><br><br>
+    
+            </div>
+
+
             </div>
 
             <div id="menu1" class="tab-pane fade">
@@ -323,6 +469,84 @@
                 <label >Fleshy</label>
                 
             </div>
+            </div>
+
+            <div id="menu5" class="tab-pane fade">
+
+                <div class="form-group">
+                    <label for="hortc6" class="labelform">Invasive</label><br>
+                
+                    
+                    <input type="radio" name="hortc6" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc6" value="No">
+                    <label >No</label>
+                    
+                    
+                </div>
+                <div class="form-group">
+                    <label for="hortc7" class="labelform">Suseptibility to diseases</label><br>
+                
+                    
+                    <input type="radio" name="hortc7" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc7" value="No">
+                    <label >No</label>
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="hortc8" class="labelform">Fruit / leaves Flower Litter</label><br>
+                
+                    
+                    <input type="radio" name="hortc8" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc8" value="No">
+                    <label >No</label>
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="hortc9" class="labelform">Surface Rooting</label><br>
+                
+                    
+                    <input type="radio" name="hortc9" value="Yes">
+                    <label >Yes</label>
+                   
+                    
+                    <input type="radio"  name="hortc9" value="No">
+                    <label >No</label>
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="hortc10" class="labelform">Life Span</label><br>
+                
+                    
+                    <input type="radio" name="hortc10" value="<25">     
+                    <label >25</label>
+                    <input type="radio"  name="hortc10" value="25-50">
+                    <label >25-50</label>
+                    <input type="radio" name="hortc10" value="50<">
+                    <label >50<</label>
+
+                 
+                    
+                    
+                </div>
+
+
+
+
             </div>
 
 

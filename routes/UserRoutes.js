@@ -64,6 +64,10 @@ router.get('/PlantIdentity', function(req, res) {
     res.render('PlantIdentity', { layout: './Layouts/UserLayout' });
 });
 
+router.get('/PlantCriteria', function(req, res) {
+  res.render('PlantCriteria', { layout: './Layouts/UserLayout' });
+});
+
 router.post('/Contacted', UserController.saveContact);
 
 router.post("/SearchByName", UserController.searchPlantByName);
@@ -73,6 +77,8 @@ router.get("/Gallery", UserController.displayAllPlants);
 router.get("/SearchCategory/:category",UserController.searchPlantByCategory);
 
 router.post("/SearchPlantIdentity",UserController.searchPlantIdentity);
+
+router.post("/SearchPlantCriteria",UserController.searchPlantCriteria);
 
 
 router.get('/SearchLetter/:Letter',UserController.searchPlantByLetter);
