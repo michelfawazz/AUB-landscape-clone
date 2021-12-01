@@ -21,18 +21,24 @@
         <label for="message">Message</label>
         <textarea class="form-control" name="message" rows="3" style="max-width: 100%;"></textarea>
     </div>
-   
+
+
+    <div class="form-group">
+    <div class="g-recaptcha" data-sitekey="6LeVPlsdAAAAAEeH2NHQeCgt-hDVhB5FY43MCl-J" data-callback="recaptcha_callback"></div>
+    </div>
+    
     
 
     
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" id="submitbtn" class="btn btn-primary" disabled>Submit</button>
 </form>
 
 <script>
- 
-    
 
-    
+function recaptcha_callback() {
+   var submitbtn = document.querySelector('#submitbtn');
+   submitbtn.removeAttribute("disabled");
+}
 
 </script>
