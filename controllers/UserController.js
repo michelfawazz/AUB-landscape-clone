@@ -79,34 +79,58 @@ module.exports.searchPlantByLetter = (req, res) => {
 
 //display all images of plants
 module.exports.displayAllPlants = (req, res) => {
-    plant.find({}, (err, plant) => {
-        if (err) {
-            res.send(err);
-        } else {
-            console.log(plant);
+
+    
+    var perPage = 9;
+    
+    var page = req.params.page || 1
+    var type = "";
+
+
+
+    plant.find({})
+    .skip((perPage * page) - perPage)
+    .limit(perPage)
+    .exec(function(err, plants) {
+        plant.count().exec(function(err, count) {
+            if (err) return next(err)
             res.render('Gallery', {
                 layout: './Layouts/UserLayout',
-                plant: plant,
-            });
-        }
-    });
+                plant: plants,
+                current: page,
+                pages: Math.ceil(count / perPage),
+                type: type,
+            })
+        })
+       
+    })
 }
 
+ 
 // display images of plants where name in landscape object is equal to Type and  content is tree
 module.exports.displayPlantsByType = (req, res) => {
+    var perPage = 9;
+    
+    var page = req.params.page || 1
     let type = req.params.Type;
-    plant.find({"landscape.name": "Type", "landscape.content": type}, (err, plant) => {
-        if (err) {
-            res.send(err);
-        } else {
-            console.log(plant);
+    plant.find({"landscape.name": "Type", "landscape.content": type}).skip((perPage * page) - perPage)
+    .limit(perPage)
+    .exec(function(err, plants) {
+        plant.count().exec(function(err, count) {
+            if (err) return next(err)
+            console.log(type);
             res.render('Gallery', {
                 layout: './Layouts/UserLayout',
-                plant: plant,
+                plant: plants,
+                current: page,
+                pages: Math.ceil(count / perPage),
+                type: type,
             });
-        }
-    });
+        })
+    })
 }
+
+   
 
 // save the data from the contact for to display later
 module.exports.saveContact = (req, res) => {

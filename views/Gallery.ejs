@@ -2,23 +2,22 @@
 <div class= "navgal">
     <ul>
         <li>Select Plant Type: </li>
-        <li><a href="/Gallery">All Types</a></li>
-        <li><a href="/Gallery/cactus">Cactus</a></li>
-        <li><a href="/Gallery/groundcover">Ground Covers</a></li>
-        <li><a href="/Gallery/lawn">Lawn</a></li>
-        <li><a href="/Gallery/palm">Palm</a></li>
-        <li><a href="/Gallery/shrub">Shrub</a></li>
-        <li><a href="/Gallery/tree">Tree</a></li>
-        <li><a href="/Gallery/vine">Vine</a></li>
+        <li><a href="/Gallery/1">All Types</a></li>
+        <li><a href="/Gallery/1/cactus">Cactus</a></li>
+        <li><a href="/Gallery/1/groundcover">Ground Covers</a></li>
+        <li><a href="/Gallery/1/lawn">Lawn</a></li>
+        <li><a href="/Gallery/1/palm">Palm</a></li>
+        <li><a href="/Gallery/1/shrub">Shrub</a></li>
+        <li><a href="/Gallery/1/tree">Tree</a></li>
+        <li><a href="/Gallery/1/vine">Vine</a></li>
         
     </ul>
 </div>
-<!-- pagination with a specifed amount of images per page-->
 
 
 
 
-<!-- bootstrap Responsive image grid for loop-->
+
 <div class="container">
     <div class="row">
 
@@ -42,6 +41,37 @@
 
     <% } %>
     </div>
+
+    <% if (pages > 0) { %>
+        <ul class="pagination text-center">
+            <% if (current == 1) { %>
+                <li class="disabled"><a>First</a></li>
+            <% } else { %>
+                <li><a href="/gallery/1/<%=type%>">First</a></li>
+            <% } %>
+            <% var i = current > 5 ? current - 4 : 1 %>
+            <% if (i !== 1) { %>
+                <li class="disabled"><a>...</a></li>
+            <% } %>
+            <% for (; i <= current +4 && i <= pages; i++) { %>
+                <% if (i == current) { %>
+                    <li class="active"><a><%= i %></a></li>
+                <% } else { %>
+                    <li><a href="/gallery/<%= i %>/<%=type%>"><%= i %></a></li>
+                <% } %>
+                <% if (i == current + 4 && i < pages) { %>
+                    <li class="disabled"><a>...</a></li>
+                <% } %>
+            <% } %>
+            <% if (current == pages) { %>
+                <li class="disabled"><a>Last</a></li>
+            <% } else { %>
+                <li><a href="/gallery/<%= pages %>/<%=type%>">Last</a></li>
+            <% } %>
+        </ul>
+    <% } %>
+
+    
 </div>
 
    

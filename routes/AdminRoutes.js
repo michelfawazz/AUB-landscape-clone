@@ -6,6 +6,9 @@ const ContactModel = require('../models/ContactModel');
 const path = require('path');
 let reqPath = path.join(__dirname, '../');
 
+
+
+
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -27,6 +30,8 @@ const upload = multer({
 
 
 router.get('/', (req, res) => {
+
+    
     res.render('admin')
 });
 

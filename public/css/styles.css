@@ -1,222 +1,57 @@
 body{
-   
+    background-color: #99f57f44;
 }
-
+ 
 header{
-    background-color: #f1f1f1;
-    padding: 30px;
-    
+    background-color: #3c6e2e5d;
     font-size: 35px;
-    color: black;
-
+    color: rgb(37, 61, 17);
+    height: 150px;
+    padding: 20px;
 }
-
+ 
 main{
     padding-bottom: 50px;
-   
+    margin-top: 100px;
 }
-
+ 
 footer{
     /* place footer at the bottom*/
-   
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #f1f1f1;
+    background-color: #3c6e2e5d;
     color: black;
     text-align: center;
     padding: 30px;
-   
 }
-
 
 .navbar a{
     color: black;
     text-decoration: none;
     font-size: 20px;
     padding: 10px;
-    display: inline-block;
+    display: block;
+    text-align: center;
 }
 
-.category{
-    /* Place the items inside in a grid*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-}
-
-
-.alphaSearch h4{
-    color: #0099FF;
+.col-sm-3{
+    position: relative;
+    float: right;
+    left: -80px;
 
 }
 
-.alphaSearch ul li{
-    list-style: none;
-    margin-bottom: 10px;
-    font-size: 18px;
+.spotlight h2 {
+    display: block;
     font-weight: bold;
-    display: inline-block;
-    padding-left: 10px;
-   
-}
-.alphaSearch a{
-    color: black;
-}
-
-.profile h4{
-    color: lightgreen;
-}
-
-.profile span{
-    color: rgb(134, 119, 119) ;
-}
-
-.AdminSearchRes{
-    /*rows */
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-   
-
+    font-size: 20px;
+    color: #06470f;
 
 }
-
-.AdminSearchRes img {
-    width: 250px;
-    height: 250px;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    border-radius: 10px;
-}
-
-
-.SearchBar img{
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: none;
-
-
-}
-
-
-.cardsgaler {
-    display: flex;
-
-    /* Put a card in the next row when previous cards take all width */
-    flex-wrap: wrap;
-
-    margin-left: -8px;
-    margin-right: -8px;
-}
-
-.cardsgaler__item {
-    /* There will be 4 cards per row */
-    flex-basis: 30%;
-
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.imggal {
-    width: 180px;
-    height: 180px;
-    
-}
-
-.h4gal{
-    color: lightgreen;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    
-}
-
-.galcont{
-    padding-top: 50px;
-}
-
-
-.navgal{
-    /* small nav*/
-    width: 100%;
-    height: 40px;
-    float: left;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-}
-.navgal a{
-    color: darkgray;
-    font-size: 12px;
-    font-weight: bold;
-    display: inline-block;
-    padding-left: 10px;
-   
-   
-}
-.navgal ul li{
-    list-style: none;
-    margin-bottom: 10px;
-    font-size: 12px;
-    font-weight: bold;
-    display: inline;
-}
-
-
-
-
-.imageviews{
-    /*display alone on the line*/
-    display: inline-block;
-    
-
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.imageviews img{
-   
-    width: 200px;
-    height: 200px;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #000;
-    border-radius: 10px;
-
-}
-
-.complete {
-    display: none;
-  }
-  
-
-.imgspot{
-    width: 150px;
-    height: 150px;
-
-   
-  }
-
 
 .pspot{
-    width: 250px;
+    width: 350px;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -229,4 +64,229 @@ footer{
     
 
    
+}
+
+#bs-example-navbar-collapse-1{ 
+    color: rgb(37, 61, 17);
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 35px;
+}
+  
+#bs-example-navbar-collapse-1 li a {
+    display: inline-block;
+    color: rgb(45, 87, 55);
+    text-decoration: none;
+    text-align: right;
+}
+  
+#bs-example-navbar-collapse-1 li a:hover:not(.active) {
+    background-color: rgb(45, 87, 55);
+    color: white;
+}
+ 
+.category{
+    /* Place the items inside in a grid*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+ 
+.category .card{
+    border: 1px solid darkgreen;
+    text-align: center;
+    padding: 20px;
+    height: 300px;
+    background-color: #99f57f15;
+    margin: 10px;
+}
+
+.alphaSearch h4{
+    margin-top: 50px;
+    margin-left: 30px;
+    color: #06470f;
+    font-weight: bold;
+}
+ 
+.alphaSearch ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 20px;
+    margin-left: -30px;
+
+}
+
+.alphaSearch li a {
+    display: inline-block;
+    color: rgb(45, 87, 55);
+    text-decoration: none;
+    text-align: right;
+    padding: 5px;
+}
+  
+.alphaSearch li a:hover:not(.active) {
+    background-color: rgb(45, 87, 55);
+    color: white;
+}
+
+
+.alphaSearch a{
+    color: black;
+}
+ 
+.profile h4{
+    color: black;
+}
+ 
+.profile span{
+    color: rgb(134, 119, 119) ;
+}
+ 
+.AdminSearchRes{
+    /*rows */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+ 
+.AdminSearchRes img {
+    width: 250px;
+    height: 250px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+ 
+ 
+.SearchBar img{
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+ 
+ 
+.cardsgaler {
+    display: flex;
+    /* Put a card in the next row when previous cards take all width */
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+ 
+.cardsgaler__item {
+    /* There will be 4 cards per row */
+    flex-basis: 30%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+ 
+.imggal {
+    width: 180px;
+    height: 180px; 
+}
+ 
+.h4gal{
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+ 
+.galcont{
+    padding-top: 50px;
+}
+ 
+.navgal{
+    /* small nav*/
+    width: 100%;
+    height: 40px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navgal a{
+    color: rgb(6, 56, 10);
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    padding-left: 10px;
+}
+ 
+.navgal ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline;
+}
+ 
+.imageviews{
+    
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+ 
+.imageviews img{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+ 
+.complete {
+    display: none;
+}
+   
+.imgspot{
+    width: 200px;
+    height: 200px;
+}
+
+.col-sm-6{
+    float: left;
+    width: 700px;
+    margin-left: 20px;
+    padding-top: 10px;
+
+}
+
+.col-sm-12{
+    float: left;
+    width: 700px;
+}
+ 
+.about{
+    float: left;
+    position: relative;
+    
+}
+ 
+.about h4{
+    font-weight: bold;
+    font-size: 20px;
+    color: #06470f;
 }
