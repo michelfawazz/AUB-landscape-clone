@@ -80,15 +80,17 @@ module.exports.searchPlantByLetter = (req, res) => {
 //display all images of plants
 module.exports.displayAllPlants = (req, res) => {
 
-    
-    var perPage = 9;
-    
+  
+    var perPage = parseInt(req.body.perpage) ||9;
+
     var page = req.params.page || 1
     var type = "";
 
+    var Sort = req.body.sort || "ScientificName";
+    
 
 
-    plant.find({})
+    plant.find({}).sort(Sort)
     .skip((perPage * page) - perPage)
     .limit(perPage)
     .exec(function(err, plants) {
@@ -100,6 +102,9 @@ module.exports.displayAllPlants = (req, res) => {
                 current: page,
                 pages: Math.ceil(count / perPage),
                 type: type,
+                perPage: perPage,
+                Sorts: Sort,
+               
             })
         })
        
@@ -109,14 +114,17 @@ module.exports.displayAllPlants = (req, res) => {
  
 // display images of plants where name in landscape object is equal to Type and  content is tree
 module.exports.displayPlantsByType = (req, res) => {
-    var perPage = 9;
+    var perPage = parseInt(req.body.perpage) ||9;
+    console.log(perPage);
+
+    var Sort = req.body.sort || "ScientificName";
     
     var page = req.params.page || 1
     let type = req.params.Type;
-    plant.find({"landscape.name": "Type", "landscape.content": type}).skip((perPage * page) - perPage)
+    plant.find({"landscape.name": "Type", "landscape.content": type}).sort({Sort:order}).skip((perPage * page) - perPage)
     .limit(perPage)
     .exec(function(err, plants) {
-        plant.count().exec(function(err, count) {
+        plant.find({"landscape.name": "Type", "landscape.content": type}).count().exec(function(err, count) {
             if (err) return next(err)
             console.log(type);
             res.render('Gallery', {
@@ -125,6 +133,9 @@ module.exports.displayPlantsByType = (req, res) => {
                 current: page,
                 pages: Math.ceil(count / perPage),
                 type: type,
+                perPage: perPage,
+                Sorts: Sort,
+             
             });
         })
     })

@@ -73,6 +73,7 @@ router.post('/Contacted', UserController.saveContact);
 router.post("/SearchByName", UserController.searchPlantByName);
 
 router.get("/Gallery/:page", UserController.displayAllPlants);
+router.post("/Gallery/:page", UserController.displayAllPlants);
 
 router.get("/SearchCategory/:category",UserController.searchPlantByCategory);
 
@@ -84,7 +85,7 @@ router.post("/SearchPlantCriteria",UserController.searchPlantCriteria);
 router.get('/SearchLetter/:Letter',UserController.searchPlantByLetter);
 
 router.get("/Gallery/:page/:Type", UserController.displayPlantsByType);
-
+router.post("/Gallery/:page/:Type", UserController.displayPlantsByType);
 
 router.get("/PlantProfile/:CommonName" , UserController.PlantProfile);
 

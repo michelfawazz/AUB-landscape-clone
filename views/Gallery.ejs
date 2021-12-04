@@ -10,9 +10,27 @@
         <li><a href="/Gallery/1/shrub">Shrub</a></li>
         <li><a href="/Gallery/1/tree">Tree</a></li>
         <li><a href="/Gallery/1/vine">Vine</a></li>
+        <li><div class="pagination2">
+    <form action="/Gallery/<%=current%>/<%=type%>" method="post">
+        <label for="perpage">Images per page: </label>
+        <input type="number" name="perpage" id="perpage" min="1" max="100" value="<%=perPage%>">
+        <!-- select with 2 option -->
+        <label for="sort">Sort by: </label>
+        <select name="sort" id="sort" value="<%= Sorts%>">
+            <option <%=Sorts=="CommonName"?'selected ':''%>value="CommonName">CommonName</option>
+            <option <%=Sorts=="ScientificName"?'selected ':''%>value="ScientificName">ScientificName</option>
+        </select>
         
+        <input type="submit" value="Submit">
+    </form>
+</div></li>
     </ul>
+    
 </div>
+
+<!-- input how many images per page-->
+
+
 
 
 
@@ -35,6 +53,7 @@
 
                 <div class="caption">
                     <h4 class='h4gal'><%= plant[i].CommonName %></h4>
+                    <h3 class='h3gal'><%= plant[i].ScientificName %></h3>
                 </div>
             
         </div>
@@ -45,28 +64,46 @@
     <% if (pages > 0) { %>
         <ul class="pagination text-center">
             <% if (current == 1) { %>
-                <li class="disabled"><a>First</a></li>
+                <li class="disabled"><button>First</button></li>
             <% } else { %>
-                <li><a href="/gallery/1/<%=type%>">First</a></li>
+            <li>
+                <form action="/gallery/1/<%=type%>" method="post">
+                    <input type="hidden" name="perpage" value="<%=perPage%>">
+                    <input type="hidden" name="sort" value="<%=Sorts%>">
+                    <input type="submit" value="First">
+                </form>
+            </li>
             <% } %>
             <% var i = current > 5 ? current - 4 : 1 %>
             <% if (i !== 1) { %>
-                <li class="disabled"><a>...</a></li>
+                <li class="disabled"><button>...</button></li>
             <% } %>
             <% for (; i <= current +4 && i <= pages; i++) { %>
                 <% if (i == current) { %>
-                    <li class="active"><a><%= i %></a></li>
+                    <li class="active"><button><%= i %></button></li>
                 <% } else { %>
-                    <li><a href="/gallery/<%= i %>/<%=type%>"><%= i %></a></li>
+                    <li>
+                        <form action="/gallery/<%= i %>/<%=type%>" method="post">
+                            <input type="hidden" name="perpage" value="<%=perPage%>">
+                            <input type="hidden" name="sort" value="<%=Sorts%>">
+                            <input type="submit" value="<%= i %>">
+                        </form>
+                    </li>
                 <% } %>
                 <% if (i == current + 4 && i < pages) { %>
-                    <li class="disabled"><a>...</a></li>
+                    <li class="disabled"><button>...</button></li>
                 <% } %>
             <% } %>
             <% if (current == pages) { %>
-                <li class="disabled"><a>Last</a></li>
+                <li class="disabled"><button>Last</button></li>
             <% } else { %>
-                <li><a href="/gallery/<%= pages %>/<%=type%>">Last</a></li>
+                <li>
+                    <form action="/gallery/<%= pages %>/<%=type%>" method="post">
+                        <input type="hidden" name="perpage" value="<%=perPage%>">
+                        <input type="hidden" name="sort" value="<%=Sorts%>">
+                        <input type="submit" value="Last">
+                    </form>
+              </li>
             <% } %>
         </ul>
     <% } %>
@@ -75,8 +112,6 @@
 </div>
 
    
-   
-
 
 
 
