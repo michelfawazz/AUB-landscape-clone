@@ -121,7 +121,7 @@ module.exports.displayPlantsByType = (req, res) => {
     
     var page = req.params.page || 1
     let type = req.params.Type;
-    plant.find({"landscape.name": "Type", "landscape.content": type}).sort({Sort:order}).skip((perPage * page) - perPage)
+    plant.find({"landscape.name": "Type", "landscape.content": type}).sort(Sort).skip((perPage * page) - perPage)
     .limit(perPage)
     .exec(function(err, plants) {
         plant.find({"landscape.name": "Type", "landscape.content": type}).count().exec(function(err, count) {
